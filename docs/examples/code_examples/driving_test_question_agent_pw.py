@@ -110,7 +110,7 @@ async def main() -> None:
                 next_url = await next_button.get_attribute('href')
                 if next_url:
                     await context.enqueue_links(selector='button.next, a.next-page')
-        except Exception:  # noqa: S110
+        except (TimeoutError, AttributeError):
             # Expected: Not all pages have next buttons
             pass
 
@@ -142,7 +142,7 @@ async def extract_category(page: Page) -> str:
         if 'category' in title.lower() or 'topic' in title.lower():
             return title
 
-    except Exception:
+    except (TimeoutError, AttributeError):
         # Return default category if extraction fails
         return 'General'
 
