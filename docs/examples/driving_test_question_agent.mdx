@@ -1,0 +1,85 @@
+---
+id: driving-test-question-agent
+title: Driving test question agent
+---
+
+import ApiLink from '@site/src/components/ApiLink';
+import CodeBlock from '@theme/CodeBlock';
+
+import BeautifulSoupSource from '!!raw-loader!./code_examples/driving_test_question_agent.py';
+import PlaywrightSource from '!!raw-loader!./code_examples/driving_test_question_agent_pw.py';
+
+This example demonstrates how to create an agent that scrapes driving test questions from websites. This is useful for building study materials, practice tests, or educational applications.
+
+## Agent that answers driving test questions
+
+The example shows how to:
+
+1. **Scrape driving test questions** from educational websites
+2. **Extract structured data** including questions, options, and correct answers
+3. **Store the data** for future reference or processing
+4. **Navigate** through multiple pages of questions
+
+## Using BeautifulSoupCrawler
+
+Use <ApiLink to="class/BeautifulSoupCrawler">`BeautifulSoupCrawler`</ApiLink> when the driving test website serves static HTML content. This approach is faster and more efficient for simple websites.
+
+<CodeBlock className="language-python">
+    {BeautifulSoupSource}
+</CodeBlock>
+
+The crawler extracts:
+- **Question text**: The actual driving test question
+- **Answer options**: Multiple choice options (A, B, C, D)
+- **Correct answer**: The right answer to the question
+- **Explanation**: Additional explanation if available
+
+Data is stored in the default dataset in `./storage/datasets/default/` directory.
+
+## Using PlaywrightCrawler for interactive tests
+
+Use <ApiLink to="class/PlaywrightCrawler">`PlaywrightCrawler`</ApiLink> when dealing with JavaScript-heavy websites or interactive quizzes that require browser interaction.
+
+<CodeBlock className="language-python">
+    {PlaywrightSource}
+</CodeBlock>
+
+The Playwright-based agent can:
+- **Handle dynamic content**: Wait for JavaScript to load questions
+- **Interact with quizzes**: Click buttons, select answers
+- **Extract images**: Capture traffic signs or diagrams
+- **Navigate interactive elements**: Handle pagination and dynamic loading
+
+## Use cases
+
+This type of agent is useful for:
+
+- **Creating study materials**: Collect questions for exam preparation
+- **Building practice tests**: Aggregate questions from multiple sources
+- **Educational platforms**: Scrape content for learning applications
+- **Data analysis**: Analyze question patterns and difficulty levels
+
+## Customization
+
+To adapt these examples for specific websites:
+
+1. **Update the selectors**: Inspect the target website and modify CSS selectors to match the HTML structure
+2. **Adjust the starting URLs**: Replace example URLs with actual driving test websites
+3. **Add more data fields**: Extract additional information like difficulty level, images, or categories
+4. **Implement answer validation**: Add logic to verify answers if the website provides feedback
+
+## Ethical considerations
+
+When scraping driving test questions:
+
+- **Respect robots.txt**: Always check and respect the website's robots.txt file
+- **Check terms of service**: Ensure scraping is allowed by the website
+- **Rate limiting**: Use appropriate delays to avoid overloading servers
+- **Attribution**: Give credit to the source when using scraped content
+
+## Related resources
+
+- <ApiLink to="class/BeautifulSoupCrawler">`BeautifulSoupCrawler`</ApiLink>
+- <ApiLink to="class/PlaywrightCrawler">`PlaywrightCrawler`</ApiLink>
+- <ApiLink to="class/Dataset">`Dataset`</ApiLink>
+- [Respect robots.txt file](./respect_robots_txt_file.mdx)
