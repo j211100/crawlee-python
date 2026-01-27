@@ -1,0 +1,85 @@
+---
+id: driving-test-question-agent
+title: Agente para preguntas de prueba de conducir
+---
+
+import ApiLink from '@site/src/components/ApiLink';
+import CodeBlock from '@theme/CodeBlock';
+
+import BeautifulSoupSource from '!!raw-loader!./code_examples/driving_test_question_agent.py';
+import PlaywrightSource from '!!raw-loader!./code_examples/driving_test_question_agent_pw.py';
+
+Este ejemplo demuestra cómo crear un agente que extrae preguntas de pruebas de conducir desde sitios web. Esto es útil para construir materiales de estudio, pruebas de práctica o aplicaciones educativas.
+
+## Agente que responde preguntas de prueba de conducir
+
+El ejemplo muestra cómo:
+
+1. **Extraer preguntas de prueba de conducir** desde sitios web educativos
+2. **Extraer datos estructurados** incluyendo preguntas, opciones y respuestas correctas
+3. **Almacenar los datos** para referencia futura o procesamiento
+4. **Navegar** a través de múltiples páginas de preguntas
+
+## Usando BeautifulSoupCrawler
+
+Usar <ApiLink to="class/BeautifulSoupCrawler">`BeautifulSoupCrawler`</ApiLink> cuando el sitio web de prueba de conducir sirve contenido HTML estático. Este enfoque es más rápido y eficiente para sitios web simples.
+
+<CodeBlock className="language-python">
+    {BeautifulSoupSource}
+</CodeBlock>
+
+El crawler extrae:
+- **Texto de la pregunta**: La pregunta real de la prueba de conducir
+- **Opciones de respuesta**: Opciones de opción múltiple (A, B, C, D)
+- **Respuesta correcta**: La respuesta correcta a la pregunta
+- **Explicación**: Explicación adicional si está disponible
+
+Los datos se almacenan en el dataset predeterminado en el directorio `./storage/datasets/default/`.
+
+## Usando PlaywrightCrawler para pruebas interactivas
+
+Usar <ApiLink to="class/PlaywrightCrawler">`PlaywrightCrawler`</ApiLink> cuando se trabaja con sitios web con JavaScript intensivo o cuestionarios interactivos que requieren interacción con el navegador.
+
+<CodeBlock className="language-python">
+    {PlaywrightSource}
+</CodeBlock>
+
+El agente basado en Playwright puede:
+- **Manejar contenido dinámico**: Esperar a que JavaScript cargue las preguntas
+- **Interactuar con cuestionarios**: Hacer clic en botones, seleccionar respuestas
+- **Extraer imágenes**: Capturar señales de tráfico o diagramas
+- **Navegar elementos interactivos**: Manejar paginación y carga dinámica
+
+## Casos de uso
+
+Este tipo de agente es útil para:
+
+- **Crear materiales de estudio**: Recopilar preguntas para preparación de exámenes
+- **Construir pruebas de práctica**: Agregar preguntas de múltiples fuentes
+- **Plataformas educativas**: Extraer contenido para aplicaciones de aprendizaje
+- **Análisis de datos**: Analizar patrones de preguntas y niveles de dificultad
+
+## Personalización
+
+Para adaptar estos ejemplos a sitios web específicos:
+
+1. **Actualizar los selectores**: Inspeccionar el sitio web objetivo y modificar los selectores CSS para que coincidan con la estructura HTML
+2. **Ajustar las URLs iniciales**: Reemplazar las URLs de ejemplo con sitios web reales de prueba de conducir
+3. **Agregar más campos de datos**: Extraer información adicional como nivel de dificultad, imágenes o categorías
+4. **Implementar validación de respuestas**: Agregar lógica para verificar respuestas si el sitio web proporciona retroalimentación
+
+## Consideraciones éticas
+
+Al extraer preguntas de prueba de conducir:
+
+- **Respetar robots.txt**: Siempre verificar y respetar el archivo robots.txt del sitio web
+- **Verificar términos de servicio**: Asegurar que el scraping esté permitido por el sitio web
+- **Limitación de tasa**: Usar retrasos apropiados para evitar sobrecargar los servidores
+- **Atribución**: Dar crédito a la fuente al usar contenido extraído
+
+## Recursos relacionados
+
+- <ApiLink to="class/BeautifulSoupCrawler">`BeautifulSoupCrawler`</ApiLink>
+- <ApiLink to="class/PlaywrightCrawler">`PlaywrightCrawler`</ApiLink>
+- <ApiLink to="class/Dataset">`Dataset`</ApiLink>
+- [Respetar archivo robots.txt](./respect_robots_txt_file.mdx)
