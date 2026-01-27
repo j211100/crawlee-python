@@ -1,0 +1,415 @@
+---
+id: driving-test-agent-visualization
+title: 🎨 Visualización del Proyecto - Agente para Aprender a Conducir
+---
+
+import ApiLink from '@site/src/components/ApiLink';
+
+Esta página proporciona una **visualización completa** del proyecto de agente de IA
+para pruebas de conducir, incluyendo diagramas de arquitectura, flujos de trabajo
+y comparaciones visuales.
+
+## 📊 Visión General del Proyecto
+
+{/* prettier-ignore */}
+<div style={{background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+  padding: '30px', borderRadius: '15px', color: 'white', marginBottom: '30px'}}>
+  <h2 style={{margin: 0, textAlign: 'center'}}>🎯 Sistema de Agentes de IA para Conducir</h2>
+  <p style={{textAlign: 'center', marginTop: '15px'}}>
+    Un ecosistema completo de agentes inteligentes para extraer, procesar y gestionar
+    preguntas de pruebas de conducir
+  </p>
+</div>
+
+## 🏗️ Arquitectura del Sistema
+
+### Diagrama de Componentes Principal
+
+```text
+┌─────────────────────────────────────────────────────────────────┐
+│              🚗 SISTEMA DE AGENTES DE CONDUCIR                  │
+└─────────────────────────────────────────────────────────────────┘
+                                │
+         ┌──────────────────────┼──────────────────────┐
+         │                      │                      │
+         ▼                      ▼                      ▼
+┌──────────────────┐  ┌──────────────────┐  ┌──────────────────┐
+│  📝 AGENTE       │  │  🤖 AGENTE IA    │  │  ⚡ AGENTE       │
+│     BÁSICO       │  │     COMPLETO     │  │     CUÁNTICO     │
+│                  │  │                  │  │                  │
+│ • BeautifulSoup  │  │ • Base de datos  │  │ • Vectorización  │
+│ • Playwright     │  │ • Deduplicación  │  │ • Búsqueda sem.  │
+│ • Extracción     │  │ • Categorización │  │ • ML automático  │
+│ • Almacenamiento │  │ • Exportación    │  │ • Cache intelig. │
+└──────────────────┘  └──────────────────┘  └──────────────────┘
+         │                      │                      │
+         └──────────────────────┼──────────────────────┘
+                                │
+                                ▼
+              ┌────────────────────────────────────┐
+              │     📦 CRAWLEE PYTHON FRAMEWORK    │
+              │                                    │
+              │  • BeautifulSoupCrawler            │
+              │  • PlaywrightCrawler               │
+              │  • Dataset & Storage               │
+              │  • Request Queue                   │
+              └────────────────────────────────────┘
+```
+
+## 🔄 Flujo de Trabajo del Agente
+
+### Proceso de Extracción de Preguntas
+
+```text
+┌─────────────────────────────────────────────────────────────────┐
+│                    📥 FLUJO DE PROCESAMIENTO                    │
+└─────────────────────────────────────────────────────────────────┘
+
+     ┌─────────┐
+     │ INICIO  │
+     └────┬────┘
+          │
+          ▼
+┌─────────────────────┐
+│  1️⃣ CONFIGURACIÓN   │──────── URLs de entrada
+│    del Crawler      │         Parámetros de configuración
+└─────────┬───────────┘
+          │
+          ▼
+┌─────────────────────┐
+│  2️⃣ SOLICITUD HTTP  │──────── HTTP request a la URL
+│    o Playwright     │         Renderizado de JavaScript
+└─────────┬───────────┘
+          │
+          ▼
+┌─────────────────────┐
+│  3️⃣ PARSING HTML    │──────── BeautifulSoup / Playwright
+│    Extracción DOM   │         Selectores CSS
+└─────────┬───────────┘
+          │
+          ▼
+┌─────────────────────┐
+│  4️⃣ PROCESAMIENTO   │──────── Limpieza de texto
+│    de Preguntas     │         Validación de datos
+└─────────┬───────────┘
+          │
+          ▼
+┌─────────────────────┐       ┌─────────────────┐
+│  5️⃣ DEDUPLICACIÓN   │──────►│ ¿Duplicado?     │
+│    Hash/Vectorial   │       │  Sí → Descartar │
+└─────────┬───────────┘       │  No → Continuar │
+          │                   └─────────────────┘
+          ▼
+┌─────────────────────┐
+│  6️⃣ CATEGORIZACIÓN  │──────── Análisis de keywords
+│    Inteligente      │         Asignación de categoría
+└─────────┬───────────┘
+          │
+          ▼
+┌─────────────────────┐
+│  7️⃣ ALMACENAMIENTO  │──────── JSON / CSV / Markdown
+│    Persistente      │         Dataset de Crawlee
+└─────────┬───────────┘
+          │
+          ▼
+┌─────────────────────┐
+│  8️⃣ CRAWLING        │──────── Encolar nuevos enlaces
+│    de Enlaces       │         Continuar exploración
+└─────────┬───────────┘
+          │
+          ▼
+     ┌────────────┐
+     │    FIN     │
+     │  📊 Reporte│
+     └────────────┘
+```
+
+## 📈 Comparación Visual de Agentes
+
+### Características por Nivel
+
+{/* prettier-ignore */}
+<div style={{display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)',
+  gap: '20px', marginBottom: '30px'}}>
+  <div style={{background: '#e8f5e9', padding: '20px', borderRadius: '10px',
+    textAlign: 'center'}}>
+    <h3 style={{color: '#2e7d32'}}>📝 Básico</h3>
+    <div style={{fontSize: '2em'}}>⭐</div>
+    <p><strong>~100 líneas</strong></p>
+    <ul style={{textAlign: 'left', fontSize: '0.9em'}}>
+      <li>Extracción HTML</li>
+      <li>Almacenamiento JSON</li>
+      <li>Crawling básico</li>
+    </ul>
+  </div>
+  <div style={{background: '#e3f2fd', padding: '20px', borderRadius: '10px',
+    textAlign: 'center'}}>
+    <h3 style={{color: '#1565c0'}}>🤖 IA Completo</h3>
+    <div style={{fontSize: '2em'}}>⭐⭐⭐</div>
+    <p><strong>~680 líneas</strong></p>
+    <ul style={{textAlign: 'left', fontSize: '0.9em'}}>
+      <li>Base de datos inteligente</li>
+      <li>Deduplicación MD5</li>
+      <li>Categorización automática</li>
+      <li>Multi-formato export</li>
+    </ul>
+  </div>
+  <div style={{background: '#f3e5f5', padding: '20px', borderRadius: '10px',
+    textAlign: 'center'}}>
+    <h3 style={{color: '#7b1fa2'}}>⚡ Cuántico</h3>
+    <div style={{fontSize: '2em'}}>⭐⭐⭐⭐⭐</div>
+    <p><strong>~1100+ líneas</strong></p>
+    <ul style={{textAlign: 'left', fontSize: '0.9em'}}>
+      <li>Vectorización semántica</li>
+      <li>Búsqueda por similitud</li>
+      <li>Cache L1/L2</li>
+      <li>ML automático</li>
+    </ul>
+  </div>
+</div>
+
+### Tabla Comparativa Detallada
+
+| Característica | 📝 Básico | 🤖 IA Completo | ⚡ Cuántico |
+|----------------|-----------|----------------|-------------|
+| **Extracción HTML** | ✅ | ✅ | ✅ |
+| **Soporte JavaScript** | ✅ (Playwright) | ✅ | ✅ |
+| **Base de datos** | ❌ | ✅ JSON | ✅ Avanzada |
+| **Deduplicación** | ❌ | ✅ MD5 | ✅ Vectorial |
+| **Categorización** | ❌ Manual | ✅ Keywords | ✅ ML |
+| **Búsqueda** | ❌ | ✅ Keyword | ✅ Semántica |
+| **Exportación** | JSON | JSON/CSV/MD | ✅+ Metadata |
+| **Caché** | ❌ | ❌ | ✅ L1/L2 |
+| **Telemetría** | Básica | ✅ | ✅✅ Completa |
+| **Escalabilidad** | Limitada | Media | Alta |
+
+## 🎯 Casos de Uso
+
+### Diagrama de Casos de Uso
+
+```text
+┌─────────────────────────────────────────────────────────────────┐
+│                         👤 CASOS DE USO                         │
+└─────────────────────────────────────────────────────────────────┘
+
+                        ┌───────────────────┐
+                        │     👨‍🎓 ESTUDIANTE │
+                        └─────────┬─────────┘
+                                  │
+          ┌───────────────────────┼───────────────────────┐
+          │                       │                       │
+          ▼                       ▼                       ▼
+┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│   📚 ESTUDIAR   │    │   📝 PRACTICAR  │    │   📊 ANALIZAR   │
+│                 │    │                 │    │                 │
+│ • Ver preguntas │    │ • Tests auto    │    │ • Estadísticas  │
+│ • Explicaciones │    │ • Retroaliment. │    │ • Progreso      │
+│ • Categorías    │    │ • Puntuación    │    │ • Áreas débiles │
+└─────────────────┘    └─────────────────┘    └─────────────────┘
+
+                        ┌───────────────────┐
+                        │    👨‍🏫 INSTRUCTOR │
+                        └─────────┬─────────┘
+                                  │
+          ┌───────────────────────┼───────────────────────┐
+          │                       │                       │
+          ▼                       ▼                       ▼
+┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│  📋 CREAR TESTS │    │   👥 GESTIONAR  │    │   📈 REPORTES   │
+│                 │    │                 │    │                 │
+│ • Personalizado │    │ • Estudiantes   │    │ • Rendimiento   │
+│ • Por categoría │    │ • Grupos        │    │ • Tendencias    │
+│ • Por dificultad│    │ • Permisos      │    │ • Exportar      │
+└─────────────────┘    └─────────────────┘    └─────────────────┘
+```
+
+## 🗃️ Modelo de Datos
+
+### Estructura de una Pregunta
+
+```text
+┌─────────────────────────────────────────────────────────────────┐
+│                      📋 ESTRUCTURA DE PREGUNTA                  │
+└─────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────┐
+│ {                                                               │
+│   "id": "A1B2C3D4",           ← Identificador único (hash)      │
+│   "question": "¿Qué significa...?",  ← Texto de la pregunta     │
+│   "options": [                       ← Opciones de respuesta    │
+│     "A) Opción 1",                                              │
+│     "B) Opción 2",                                              │
+│     "C) Opción 3",                                              │
+│     "D) Opción 4"                                               │
+│   ],                                                            │
+│   "correct_answer": "B) Opción 2",   ← Respuesta correcta       │
+│   "explanation": "Porque...",        ← Explicación              │
+│   "category": "Señales",             ← Categoría                │
+│   "difficulty": "medium",            ← Nivel de dificultad      │
+│   "source_url": "https://...",       ← URL de origen            │
+│   "images": [{                       ← Imágenes asociadas       │
+│     "src": "...",                                               │
+│     "alt": "..."                                                │
+│   }],                                                           │
+│   "created_at": "2026-01-27T...",    ← Fecha de creación        │
+│   "times_seen": 1                    ← Contador de repeticiones │
+│ }                                                               │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+## 🏷️ Categorías de Preguntas
+
+### Distribución Visual de Categorías
+
+{/* prettier-ignore */}
+<div style={{display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)',
+  gap: '15px', marginBottom: '20px'}}>
+  <div style={{background: '#ffcdd2', padding: '15px', borderRadius: '8px',
+    textAlign: 'center'}}>
+    <h4 style={{margin: '0 0 10px 0'}}>🛑 Señales</h4>
+    <p style={{margin: 0, fontSize: '0.9em'}}>
+      Señalización, semáforos, indicaciones viales
+    </p>
+  </div>
+  <div style={{background: '#c8e6c9', padding: '15px', borderRadius: '8px',
+    textAlign: 'center'}}>
+    <h4 style={{margin: '0 0 10px 0'}}>📋 Normativa</h4>
+    <p style={{margin: 0, fontSize: '0.9em'}}>
+      Leyes, reglamentos, multas, infracciones
+    </p>
+  </div>
+  <div style={{background: '#b3e5fc', padding: '15px', borderRadius: '8px',
+    textAlign: 'center'}}>
+    <h4 style={{margin: '0 0 10px 0'}}>⚙️ Mecánica</h4>
+    <p style={{margin: 0, fontSize: '0.9em'}}>
+      Motor, frenos, mantenimiento del vehículo
+    </p>
+  </div>
+  <div style={{background: '#fff9c4', padding: '15px', borderRadius: '8px',
+    textAlign: 'center'}}>
+    <h4 style={{margin: '0 0 10px 0'}}>🛡️ Seguridad</h4>
+    <p style={{margin: 0, fontSize: '0.9em'}}>
+      Cinturón, airbag, emergencias
+    </p>
+  </div>
+  <div style={{background: '#d1c4e9', padding: '15px', borderRadius: '8px',
+    textAlign: 'center'}}>
+    <h4 style={{margin: '0 0 10px 0'}}>🚗 Conducción</h4>
+    <p style={{margin: 0, fontSize: '0.9em'}}>
+      Velocidad, adelantamiento, maniobras
+    </p>
+  </div>
+  <div style={{background: '#ffe0b2', padding: '15px', borderRadius: '8px',
+    textAlign: 'center'}}>
+    <h4 style={{margin: '0 0 10px 0'}}>🔀 Prioridad</h4>
+    <p style={{margin: 0, fontSize: '0.9em'}}>
+      Intersecciones, rotondas, ceder el paso
+    </p>
+  </div>
+</div>
+
+## 📊 Pipeline de Procesamiento
+
+### Arquitectura de Pipeline
+
+```text
+┌─────────────────────────────────────────────────────────────────┐
+│                    ⚡ PIPELINE DE PROCESAMIENTO                  │
+└─────────────────────────────────────────────────────────────────┘
+
+╔════════════════╗     ╔════════════════╗     ╔════════════════╗
+║  🌐 ENTRADA    ║     ║  🔄 PROCESO    ║     ║  📤 SALIDA     ║
+║                ║     ║                ║     ║                ║
+║  URLs de       ║────►║  Crawling      ║────►║  JSON          ║
+║  pruebas de    ║     ║  Parsing       ║     ║  CSV           ║
+║  conducir      ║     ║  Extracción    ║     ║  Markdown      ║
+║                ║     ║  Validación    ║     ║  API           ║
+╚════════════════╝     ╚════════════════╝     ╚════════════════╝
+        │                      │                      │
+        │                      │                      │
+        ▼                      ▼                      ▼
+┌────────────────┐    ┌────────────────┐    ┌────────────────┐
+│ • DGT oficial  │    │ • Limpieza     │    │ • Estudiar     │
+│ • Autoescuelas │    │ • Normalizar   │    │ • Practicar    │
+│ • Sitios educ. │    │ • Categorizar  │    │ • Analizar     │
+└────────────────┘    └────────────────┘    └────────────────┘
+```
+
+## 🚀 Inicio Rápido
+
+### Diagrama de Inicio
+
+```text
+┌─────────────────────────────────────────────────────────────────┐
+│                    🚀 INICIO RÁPIDO EN 3 PASOS                  │
+└─────────────────────────────────────────────────────────────────┘
+
+   PASO 1                   PASO 2                   PASO 3
+┌───────────┐           ┌───────────┐           ┌───────────┐
+│   📦      │           │   📝      │           │   ▶️      │
+│  INSTALAR │   ──►     │ CONFIGURAR│   ──►     │  EJECUTAR │
+│           │           │           │           │           │
+│ pip install│          │ Agregar   │           │ python    │
+│ crawlee   │           │ URLs      │           │ agent.py  │
+└───────────┘           └───────────┘           └───────────┘
+```
+
+### Código de Ejemplo Visual
+
+```python
+# 1️⃣ Importar
+from crawlee.crawlers import BeautifulSoupCrawler
+
+# 2️⃣ Configurar
+crawler = BeautifulSoupCrawler(max_requests_per_crawl=100)
+
+# 3️⃣ Definir handler
+@crawler.router.default_handler
+async def handle(context):
+    # 📝 Extraer pregunta
+    question = context.soup.find('.question')
+    # 💾 Guardar datos
+    await context.push_data({'pregunta': question.text})
+    # 🔗 Seguir enlaces
+    await context.enqueue_links()
+
+# 4️⃣ Ejecutar
+await crawler.run(['https://ejemplo.com/preguntas'])
+```
+
+## 📚 Documentación Relacionada
+
+{/* prettier-ignore */}
+<div style={{display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '15px'}}>
+  <div style={{border: '2px solid #e0e0e0', padding: '20px', borderRadius: '10px'}}>
+    <h4>📝 Agente Básico</h4>
+    <p>Comenzar con scraping simple</p>
+    <a href="./driving_test_question_agent">Ver documentación →</a>
+  </div>
+  <div style={{border: '2px solid #e0e0e0', padding: '20px', borderRadius: '10px'}}>
+    <h4>🤖 Agente IA Completo</h4>
+    <p>Sistema con base de datos</p>
+    <a href="./driving_test_ai_agent_complete">Ver documentación →</a>
+  </div>
+  <div style={{border: '2px solid #e0e0e0', padding: '20px', borderRadius: '10px'}}>
+    <h4>⚡ Agente Cuántico</h4>
+    <p>Tecnología de vanguardia</p>
+    <a href="./driving_test_quantum_agent">Ver documentación →</a>
+  </div>
+  <div style={{border: '2px solid #e0e0e0', padding: '20px', borderRadius: '10px'}}>
+    <h4>📖 Crawlee Python</h4>
+    <p>Documentación del framework</p>
+    <ApiLink to="class/BeautifulSoupCrawler">Ver API →</ApiLink>
+  </div>
+</div>
+
+---
+
+{/* prettier-ignore */}
+<div style={{background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+  padding: '20px', borderRadius: '10px', color: 'white', marginTop: '30px',
+  textAlign: 'center'}}>
+  <strong>🚗 Proyecto de Agente de IA para Pruebas de Conducir</strong>
+  <br/>
+  <small>Construido con Crawlee Python - Framework de Web Scraping de Clase Mundial</small>
+</div>
