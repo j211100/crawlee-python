@@ -1,0 +1,254 @@
+---
+id: driving-test-ai-agent-complete
+title: Agente de IA Completo para Pruebas de Conducir
+---
+
+import ApiLink from '@site/src/components/ApiLink';
+import CodeBlock from '@theme/CodeBlock';
+
+import CompleteAgentSource from '!!raw-loader!./code_examples/driving_test_ai_agent_complete.py';
+
+# Agente de IA de Clase Mundial para Pruebas de Conducir
+
+Este es un **agente de IA completo y de nivel empresarial** que demuestra capacidades avanzadas para extraer, procesar, analizar y gestionar preguntas de pruebas de conducir. Va mucho más allá de un simple scraper, incorporando inteligencia artificial, procesamiento de lenguaje natural, y arquitectura empresarial.
+
+## 🚀 Características de Clase Mundial
+
+### 1. **Sistema de Base de Datos Inteligente**
+- ✅ Almacenamiento persistente en JSON
+- ✅ Detección automática de duplicados usando hashing MD5
+- ✅ Estadísticas en tiempo real
+- ✅ Búsqueda avanzada por palabra clave y categoría
+- ✅ Exportación a múltiples formatos (JSON, CSV, Markdown)
+
+### 2. **Procesamiento Inteligente de Preguntas**
+- ✅ Limpieza y normalización automática de texto
+- ✅ Categorización inteligente usando análisis de palabras clave
+- ✅ Validación automática de formato y contenido
+- ✅ Extracción de metadatos (imágenes, URLs, fechas)
+
+### 3. **Scraping Multi-Estrategia**
+- ✅ Múltiples patrones de extracción (contenedores, listas, tablas)
+- ✅ Manejo robusto de diferentes estructuras HTML
+- ✅ Reintentos automáticos en caso de error
+- ✅ Crawling inteligente con seguimiento de enlaces
+
+### 4. **Análisis y Reportes**
+- ✅ Estadísticas detalladas del proceso
+- ✅ Métricas de eficiencia y tasa de éxito
+- ✅ Logging estructurado en archivo y consola
+- ✅ Reportes exportables
+
+### 5. **Capacidades de Búsqueda y Respuesta**
+- ✅ Motor de búsqueda integrado
+- ✅ Búsqueda por palabra clave o categoría
+- ✅ Respuestas contextuales con explicaciones
+- ✅ Sistema de relevancia
+
+## 📋 Arquitectura del Sistema
+
+```
+DrivingTestAIAgent (Controlador Principal)
+├── QuestionDatabase (Almacenamiento)
+│   ├── Gestión de datos persistentes
+│   ├── Detección de duplicados
+│   ├── Búsqueda y consultas
+│   └── Exportación multi-formato
+├── IntelligentQuestionProcessor (Procesamiento)
+│   ├── Limpieza de texto
+│   ├── Categorización automática
+│   ├── Validación de datos
+│   └── Extracción de metadatos
+└── Scraping Engine (Extracción)
+    ├── Múltiples estrategias de parsing
+    ├── Manejo de errores robusto
+    ├── Crawling inteligente
+    └── Rate limiting
+```
+
+## 💻 Código Completo
+
+<CodeBlock className="language-python">
+    {CompleteAgentSource}
+</CodeBlock>
+
+## 🎯 Casos de Uso Avanzados
+
+### 1. Scraping de Múltiples Fuentes
+
+```python
+agent = DrivingTestAIAgent(
+    max_requests=500,
+    database_path='mi_base_datos.json'
+)
+
+urls = [
+    'https://sitio1.com/pruebas',
+    'https://sitio2.com/preguntas',
+    'https://sitio3.com/test'
+]
+
+report = await agent.scrape_and_process(urls)
+```
+
+### 2. Búsqueda Inteligente
+
+```python
+# Buscar preguntas sobre señales
+resultados = agent.search_and_answer('señales de tráfico', limit=10)
+
+# Buscar por categoría
+resultados = agent.database.search_questions(category='Seguridad', limit=20)
+```
+
+### 3. Exportación de Datos
+
+```python
+# Exportar a JSON
+agent.export_database('json', 'banco_preguntas.json')
+
+# Exportar a CSV para análisis
+agent.export_database('csv', 'preguntas_analisis.csv')
+
+# Exportar a Markdown para documentación
+agent.export_database('markdown', 'preguntas_doc.md')
+```
+
+### 4. Análisis de Estadísticas
+
+```python
+stats = agent.database.get_statistics()
+print(f"Total de preguntas únicas: {stats['unique_questions']}")
+print(f"Categorías disponibles: {stats['categories']}")
+print(f"Fuentes de datos: {stats['sources']}")
+```
+
+## 🔧 Configuración Avanzada
+
+### Personalizar Categorías
+
+Modifica el método `extract_category` en `IntelligentQuestionProcessor` para agregar tus propias categorías:
+
+```python
+categories_keywords = {
+    'MiCategoria': ['palabra1', 'palabra2', 'palabra3'],
+    'OtraCategoria': ['término1', 'término2'],
+}
+```
+
+### Ajustar Estrategias de Extracción
+
+Personaliza los selectores CSS en el método `_extract_questions`:
+
+```python
+question_containers = context.soup.find_all(
+    ['div', 'article'],
+    class_=['mi-clase-personalizada', 'otro-selector']
+)
+```
+
+### Configurar Logging
+
+```python
+import logging
+
+# Cambiar nivel de detalle
+logging.getLogger().setLevel(logging.DEBUG)
+
+# Agregar handlers personalizados
+handler = logging.FileHandler('mi_log.log')
+logging.getLogger().addHandler(handler)
+```
+
+## 📊 Métricas y Rendimiento
+
+El agente proporciona métricas detalladas:
+
+- **Páginas procesadas**: Número total de páginas visitadas
+- **Preguntas encontradas**: Total de preguntas detectadas
+- **Preguntas guardadas**: Preguntas únicas almacenadas
+- **Tasa de éxito**: Porcentaje de páginas procesadas sin errores
+- **Preguntas por página**: Promedio de preguntas extraídas
+- **Tasa de guardado**: Porcentaje de preguntas válidas guardadas
+
+## 🛡️ Manejo de Errores
+
+El agente incluye manejo robusto de errores:
+
+1. **Reintentos automáticos**: Hasta 3 intentos por página fallida
+2. **Timeouts configurables**: 60 segundos por defecto
+3. **Logging de errores**: Todos los errores se registran para análisis
+4. **Graceful degradation**: Continúa funcionando aunque algunas páginas fallen
+
+## 🌍 Consideraciones de Producción
+
+### Escalabilidad
+
+```python
+# Para procesamiento masivo
+agent = DrivingTestAIAgent(
+    max_requests=10000,  # Miles de páginas
+    database_path='/datos/produccion/preguntas.json'
+)
+```
+
+### Rate Limiting
+
+Ajusta la velocidad de crawling para ser respetuoso:
+
+```python
+crawler = BeautifulSoupCrawler(
+    max_requests_per_crawl=100,
+    max_request_retries=3,
+    request_handler_timeout_secs=60,
+    # Agregar delays entre solicitudes
+)
+```
+
+### Backup y Recuperación
+
+La base de datos se guarda automáticamente después de cada sesión:
+
+```python
+# Cargar base de datos existente
+agent = DrivingTestAIAgent(database_path='backup_preguntas.json')
+
+# La base de datos se carga automáticamente si existe
+```
+
+## 🎓 Diferencias con los Ejemplos Básicos
+
+| Característica | Ejemplo Básico | Agente de IA Completo |
+|----------------|----------------|----------------------|
+| **Base de datos** | No incluida | ✅ Sistema completo con persistencia |
+| **Deduplicación** | No incluida | ✅ Detección automática |
+| **Categorización** | Manual | ✅ Automática e inteligente |
+| **Validación** | No incluida | ✅ Validación completa de datos |
+| **Búsqueda** | No incluida | ✅ Motor de búsqueda integrado |
+| **Exportación** | Solo JSON básico | ✅ Múltiples formatos |
+| **Estadísticas** | No incluidas | ✅ Métricas detalladas |
+| **Logging** | Básico | ✅ Sistema avanzado |
+| **Manejo de errores** | Básico | ✅ Robusto y completo |
+
+## 🚀 Próximos Pasos
+
+Este agente puede extenderse aún más con:
+
+1. **Machine Learning**: Clasificación automática de preguntas
+2. **API REST**: Exponer funcionalidad vía API
+3. **Base de datos SQL**: Para mayor escalabilidad
+4. **Interfaz web**: Dashboard para gestión
+5. **Procesamiento de imágenes**: OCR para señales de tráfico
+6. **Multi-idioma**: Soporte para múltiples idiomas
+7. **Sistema de recomendación**: Sugerir preguntas similares
+
+## 📚 Recursos Relacionados
+
+- <ApiLink to="class/BeautifulSoupCrawler">`BeautifulSoupCrawler`</ApiLink>
+- <ApiLink to="class/PlaywrightCrawler">`PlaywrightCrawler`</ApiLink>
+- <ApiLink to="class/Dataset">`Dataset`</ApiLink>
+- [Ejemplos básicos](./driving_test_question_agent.mdx)
+
+---
+
+**Nota**: Este es un agente de IA de **clase mundial** diseñado para demostrar capacidades avanzadas. Puede ser usado directamente en producción o como base para desarrollos más especializados.
