@@ -82,3 +82,8 @@ storage/
 
 # Tmp dir
 tmp/
+
+# Root node_modules (from testing)
+node_modules/
+package-lock.json
+package.json
