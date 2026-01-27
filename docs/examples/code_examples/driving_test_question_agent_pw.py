@@ -6,52 +6,53 @@ from crawlee.crawlers import PlaywrightCrawler, PlaywrightCrawlingContext
 
 
 async def main() -> None:
-    """Interactive agent for driving test questions using Playwright.
+    """Agente interactivo para preguntas de la prueba de conducir usando Playwright.
 
-    This example demonstrates how to create an agent that can:
-    1. Navigate JavaScript-heavy driving test websites
-    2. Interact with interactive quizzes and tests
-    3. Extract questions, select answers, and verify results
-    4. Store comprehensive test data
+    Este ejemplo demuestra cómo crear un agente que puede:
+    1. Navegar sitios web de pruebas de conducir con JavaScript intensivo
+    2. Interactuar con cuestionarios y pruebas interactivas
+    3. Extraer preguntas, seleccionar respuestas y verificar resultados
+    4. Almacenar datos completos de la prueba
 
-    Use this when dealing with dynamic websites that require browser interaction.
+    Usar esto cuando se trabaje con sitios web dinámicos que requieren
+    interacción con el navegador.
     """
-    # Create a Playwright crawler for JavaScript-heavy sites
+    # Crear un crawler de Playwright para sitios con JavaScript intensivo
     crawler = PlaywrightCrawler(
-        # Limit requests during testing
+        # Limitar solicitudes durante las pruebas
         max_requests_per_crawl=20,
-        # Set to False to see browser in action (useful for debugging)
+        # Establecer en False para ver el navegador en acción (útil para depuración)
         headless=True,
-        # Retry failed requests
+        # Reintentar solicitudes fallidas
         max_request_retries=2,
     )
 
-    # Define the request handler for interactive test pages
+    # Definir el manejador de solicitudes para páginas de prueba interactivas
     @crawler.router.default_handler
     async def request_handler(context: PlaywrightCrawlingContext) -> None:
-        """Handle interactive driving test pages."""
-        context.log.info(f'Processing {context.request.url} ...')
+        """Manejar páginas interactivas de prueba de conducir."""
+        context.log.info(f'Procesando {context.request.url} ...')
 
-        # Wait for the page to load completely
+        # Esperar a que la página se cargue completamente
         await context.page.wait_for_load_state('networkidle')
 
-        # Example: Extract questions from an interactive quiz
-        # Adjust selectors based on the actual website structure
+        # Ejemplo: Extraer preguntas de un cuestionario interactivo
+        # Ajustar los selectores según la estructura real del sitio web
 
-        # Find all question containers
+        # Encontrar todos los contenedores de preguntas
         questions = await context.page.query_selector_all(
             '.quiz-question, .test-question'
         )
 
         for idx, question_element in enumerate(questions, 1):
-            # Extract question text
+            # Extraer texto de la pregunta
             question_text = await question_element.query_selector('.question-text, h3')
             if question_text:
                 question_text = await question_text.inner_text()
             else:
                 continue
 
-            # Extract answer options
+            # Extraer opciones de respuesta
             options = []
             option_elements = await question_element.query_selector_all(
                 '.answer-option, .option, input[type="radio"] + label'
@@ -61,13 +62,13 @@ async def main() -> None:
                 option_text = await option_elem.inner_text()
                 options.append(option_text.strip())
 
-            # Try to find the correct answer (if revealed)
+            # Intentar encontrar la respuesta correcta (si está revelada)
             correct_answer = ''
             correct_elem = await question_element.query_selector('.correct, .answer-key')
             if correct_elem:
                 correct_answer = await correct_elem.inner_text()
 
-            # Check if there's an explanation
+            # Verificar si hay una explicación
             explanation = ''
             explanation_elem = await question_element.query_selector(
                 '.explanation, .answer-explanation'
@@ -75,7 +76,7 @@ async def main() -> None:
             if explanation_elem:
                 explanation = await explanation_elem.inner_text()
 
-            # Extract any images (like traffic signs)
+            # Extraer cualquier imagen (como señales de tráfico)
             images = []
             image_elements = await question_element.query_selector_all('img')
             for img in image_elements:
@@ -84,7 +85,7 @@ async def main() -> None:
                 if img_src:
                     images.append({'src': img_src, 'alt': img_alt or ''})
 
-            # Structure the data
+            # Estructurar los datos
             question_data = {
                 'question_number': idx,
                 'url': context.request.url,
@@ -96,11 +97,11 @@ async def main() -> None:
                 'category': await extract_category(context.page),
             }
 
-            # Store the extracted data
+            # Almacenar los datos extraídos
             await context.push_data(question_data)
-            context.log.info(f'Extracted question {idx}: {question_text[:50]}...')
+            context.log.info(f'Pregunta extraída {idx}: {question_text[:50]}...')
 
-        # Look for "Next" or "Continue" buttons to navigate to more questions
+        # Buscar botones "Siguiente" o "Continuar" para navegar a más preguntas
         try:
             next_button = await context.page.query_selector(
                 'button.next, a.next-page, button:has-text("Next"), '
@@ -111,39 +112,39 @@ async def main() -> None:
                 if next_url:
                     await context.enqueue_links(selector='button.next, a.next-page')
         except (TimeoutError, AttributeError):
-            # Expected: Not all pages have next buttons
+            # Esperado: No todas las páginas tienen botones de siguiente
             pass
 
-        # Enqueue links to other test categories or question sets
+        # Encolar enlaces a otras categorías de prueba o conjuntos de preguntas
         await context.enqueue_links(
             selector='a[href*="test"], a[href*="quiz"], a[href*="questions"]',
         )
 
-    # Run the crawler with initial URLs
-    # Replace with actual driving test websites
+    # Ejecutar el crawler con las URLs iniciales
+    # Reemplazar con sitios web reales de prueba de conducir
     await crawler.run(
         [
             'https://example.com/driving-test',
-            # Add more URLs as needed
+            # Agregar más URLs según sea necesario
         ]
     )
 
 
 async def extract_category(page: Page) -> str:
-    """Extract the category/topic of the driving test questions."""
+    """Extraer la categoría/tema de las preguntas de la prueba de conducir."""
     try:
-        # Try to find category information
+        # Intentar encontrar información de categoría
         category_elem = await page.query_selector('.category, .topic, .test-category')
         if category_elem:
             return await category_elem.inner_text()
 
-        # Try to extract from page title
+        # Intentar extraer del título de la página
         title = await page.title()
         if 'category' in title.lower() or 'topic' in title.lower():
             return title
 
     except (TimeoutError, AttributeError):
-        # Return default category if extraction fails
+        # Devolver categoría predeterminada si falla la extracción
         return 'General'
 
     return 'General'

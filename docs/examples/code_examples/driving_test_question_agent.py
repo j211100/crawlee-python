@@ -4,35 +4,37 @@ from crawlee.crawlers import BeautifulSoupCrawler, BeautifulSoupCrawlingContext
 
 
 async def main() -> None:
-    """Agent that scrapes and answers driving test questions.
+    """Agente que extrae y responde preguntas de la prueba de conducir.
 
-    This example demonstrates how to create an agent that can:
-    1. Scrape driving test questions from websites
-    2. Extract question text, options, and correct answers
-    3. Store the data in a structured format for future reference
+    Este ejemplo demuestra cómo crear un agente que puede:
+    1. Extraer preguntas de la prueba de conducir desde sitios web
+    2. Extraer el texto de la pregunta, opciones y respuestas correctas
+    3. Almacenar los datos en un formato estructurado para referencia futura
 
-    This is useful for creating study materials or practice tests.
+    Esto es útil para crear materiales de estudio o pruebas de práctica.
     """
-    # Create a crawler instance optimized for scraping driving test content
+    # Crear una instancia del crawler optimizada para extraer contenido
+    # de pruebas de conducir
     crawler = BeautifulSoupCrawler(
-        # Limit requests during testing, remove for full crawling
+        # Limitar solicitudes durante las pruebas, eliminar para crawling completo
         max_requests_per_crawl=50,
-        # Retry failed requests
+        # Reintentar solicitudes fallidas
         max_request_retries=2,
     )
 
-    # Define the request handler to extract driving test questions
+    # Definir el manejador de solicitudes para extraer preguntas de la prueba de conducir
     @crawler.router.default_handler
     async def request_handler(context: BeautifulSoupCrawlingContext) -> None:
-        """Extract driving test questions and answers from the page."""
-        context.log.info(f'Processing {context.request.url} ...')
+        """Extraer preguntas y respuestas de la prueba de conducir de la página."""
+        context.log.info(f'Procesando {context.request.url} ...')
 
-        # Extract all questions from the page
-        # This is a generic example - adjust selectors based on actual website structure
+        # Extraer todas las preguntas de la página
+        # Este es un ejemplo genérico - ajustar los selectores según la estructura
+        # real del sitio web
         questions = context.soup.find_all('div', class_='question')
 
         for idx, question_element in enumerate(questions, 1):
-            # Extract question text
+            # Extraer texto de la pregunta
             question_text_elem = question_element.find('p', class_='question-text')
             if not question_text_elem:
                 question_text_elem = question_element.find('h3')
@@ -42,18 +44,18 @@ async def main() -> None:
             else:
                 continue
 
-            # Extract options (typically A, B, C, D)
+            # Extraer opciones (típicamente A, B, C, D)
             options = []
             option_elements = question_element.find_all('li', class_='option')
             if not option_elements:
-                # Try alternative structure
+                # Intentar estructura alternativa
                 option_elements = question_element.find_all('div', class_='answer-option')
 
             for option in option_elements:
                 option_text = option.get_text(strip=True)
                 options.append(option_text)
 
-            # Extract the correct answer
+            # Extraer la respuesta correcta
             correct_answer_elem = question_element.find('span', class_='correct-answer')
             if not correct_answer_elem:
                 correct_answer_elem = question_element.find('div', class_='answer')
@@ -61,15 +63,15 @@ async def main() -> None:
             if correct_answer_elem:
                 correct_answer = correct_answer_elem.get_text(strip=True)
             else:
-                correct_answer = 'Not specified'
+                correct_answer = 'No especificada'
 
-            # Extract explanation if available
+            # Extraer explicación si está disponible
             explanation_elem = question_element.find('div', class_='explanation')
             explanation = (
                 explanation_elem.get_text(strip=True) if explanation_elem else ''
             )
 
-            # Structure the data
+            # Estructurar los datos
             question_data = {
                 'question_number': idx,
                 'url': context.request.url,
@@ -79,23 +81,24 @@ async def main() -> None:
                 'explanation': explanation,
             }
 
-            # Store the extracted data
+            # Almacenar los datos extraídos
             await context.push_data(question_data)
-            context.log.info(f'Extracted question {idx}: {question_text[:50]}...')
+            context.log.info(f'Pregunta extraída {idx}: {question_text[:50]}...')
 
-        # Find and enqueue links to more questions
-        # Look for pagination or related question pages
+        # Encontrar y encolar enlaces a más preguntas
+        # Buscar paginación o páginas de preguntas relacionadas
         await context.enqueue_links(
             selector='a.next-page, a.more-questions, nav.pagination a',
         )
 
-    # Run the crawler with initial URLs
-    # Replace these with actual driving test question websites
-    # Examples could include official DMV practice tests or educational sites
+    # Ejecutar el crawler con las URLs iniciales
+    # Reemplazar estas con sitios web reales de preguntas de prueba de conducir
+    # Los ejemplos podrían incluir pruebas de práctica oficiales del DMV
+    # o sitios educativos
     await crawler.run(
         [
             'https://example.com/driving-test-questions',
-            # Add more URLs as needed
+            # Agregar más URLs según sea necesario
         ]
     )
 

@@ -1,6 +1,6 @@
 ---
 id: driving-test-question-agent
-title: Driving test question agent
+title: Agente para preguntas de prueba de conducir
 ---
 
 import ApiLink from '@site/src/components/ApiLink';
@@ -9,77 +9,77 @@ import CodeBlock from '@theme/CodeBlock';
 import BeautifulSoupSource from '!!raw-loader!./code_examples/driving_test_question_agent.py';
 import PlaywrightSource from '!!raw-loader!./code_examples/driving_test_question_agent_pw.py';
 
-This example demonstrates how to create an agent that scrapes driving test questions from websites. This is useful for building study materials, practice tests, or educational applications.
+Este ejemplo demuestra cómo crear un agente que extrae preguntas de pruebas de conducir desde sitios web. Esto es útil para construir materiales de estudio, pruebas de práctica o aplicaciones educativas.
 
-## Agent that answers driving test questions
+## Agente que responde preguntas de prueba de conducir
 
-The example shows how to:
+El ejemplo muestra cómo:
 
-1. **Scrape driving test questions** from educational websites
-2. **Extract structured data** including questions, options, and correct answers
-3. **Store the data** for future reference or processing
-4. **Navigate** through multiple pages of questions
+1. **Extraer preguntas de prueba de conducir** desde sitios web educativos
+2. **Extraer datos estructurados** incluyendo preguntas, opciones y respuestas correctas
+3. **Almacenar los datos** para referencia futura o procesamiento
+4. **Navegar** a través de múltiples páginas de preguntas
 
-## Using BeautifulSoupCrawler
+## Usando BeautifulSoupCrawler
 
-Use <ApiLink to="class/BeautifulSoupCrawler">`BeautifulSoupCrawler`</ApiLink> when the driving test website serves static HTML content. This approach is faster and more efficient for simple websites.
+Usar <ApiLink to="class/BeautifulSoupCrawler">`BeautifulSoupCrawler`</ApiLink> cuando el sitio web de prueba de conducir sirve contenido HTML estático. Este enfoque es más rápido y eficiente para sitios web simples.
 
 <CodeBlock className="language-python">
     {BeautifulSoupSource}
 </CodeBlock>
 
-The crawler extracts:
-- **Question text**: The actual driving test question
-- **Answer options**: Multiple choice options (A, B, C, D)
-- **Correct answer**: The right answer to the question
-- **Explanation**: Additional explanation if available
+El crawler extrae:
+- **Texto de la pregunta**: La pregunta real de la prueba de conducir
+- **Opciones de respuesta**: Opciones de opción múltiple (A, B, C, D)
+- **Respuesta correcta**: La respuesta correcta a la pregunta
+- **Explicación**: Explicación adicional si está disponible
 
-Data is stored in the default dataset in `./storage/datasets/default/` directory.
+Los datos se almacenan en el dataset predeterminado en el directorio `./storage/datasets/default/`.
 
-## Using PlaywrightCrawler for interactive tests
+## Usando PlaywrightCrawler para pruebas interactivas
 
-Use <ApiLink to="class/PlaywrightCrawler">`PlaywrightCrawler`</ApiLink> when dealing with JavaScript-heavy websites or interactive quizzes that require browser interaction.
+Usar <ApiLink to="class/PlaywrightCrawler">`PlaywrightCrawler`</ApiLink> cuando se trabaja con sitios web con JavaScript intensivo o cuestionarios interactivos que requieren interacción con el navegador.
 
 <CodeBlock className="language-python">
     {PlaywrightSource}
 </CodeBlock>
 
-The Playwright-based agent can:
-- **Handle dynamic content**: Wait for JavaScript to load questions
-- **Interact with quizzes**: Click buttons, select answers
-- **Extract images**: Capture traffic signs or diagrams
-- **Navigate interactive elements**: Handle pagination and dynamic loading
+El agente basado en Playwright puede:
+- **Manejar contenido dinámico**: Esperar a que JavaScript cargue las preguntas
+- **Interactuar con cuestionarios**: Hacer clic en botones, seleccionar respuestas
+- **Extraer imágenes**: Capturar señales de tráfico o diagramas
+- **Navegar elementos interactivos**: Manejar paginación y carga dinámica
 
-## Use cases
+## Casos de uso
 
-This type of agent is useful for:
+Este tipo de agente es útil para:
 
-- **Creating study materials**: Collect questions for exam preparation
-- **Building practice tests**: Aggregate questions from multiple sources
-- **Educational platforms**: Scrape content for learning applications
-- **Data analysis**: Analyze question patterns and difficulty levels
+- **Crear materiales de estudio**: Recopilar preguntas para preparación de exámenes
+- **Construir pruebas de práctica**: Agregar preguntas de múltiples fuentes
+- **Plataformas educativas**: Extraer contenido para aplicaciones de aprendizaje
+- **Análisis de datos**: Analizar patrones de preguntas y niveles de dificultad
 
-## Customization
+## Personalización
 
-To adapt these examples for specific websites:
+Para adaptar estos ejemplos a sitios web específicos:
 
-1. **Update the selectors**: Inspect the target website and modify CSS selectors to match the HTML structure
-2. **Adjust the starting URLs**: Replace example URLs with actual driving test websites
-3. **Add more data fields**: Extract additional information like difficulty level, images, or categories
-4. **Implement answer validation**: Add logic to verify answers if the website provides feedback
+1. **Actualizar los selectores**: Inspeccionar el sitio web objetivo y modificar los selectores CSS para que coincidan con la estructura HTML
+2. **Ajustar las URLs iniciales**: Reemplazar las URLs de ejemplo con sitios web reales de prueba de conducir
+3. **Agregar más campos de datos**: Extraer información adicional como nivel de dificultad, imágenes o categorías
+4. **Implementar validación de respuestas**: Agregar lógica para verificar respuestas si el sitio web proporciona retroalimentación
 
-## Ethical considerations
+## Consideraciones éticas
 
-When scraping driving test questions:
+Al extraer preguntas de prueba de conducir:
 
-- **Respect robots.txt**: Always check and respect the website's robots.txt file
-- **Check terms of service**: Ensure scraping is allowed by the website
-- **Rate limiting**: Use appropriate delays to avoid overloading servers
-- **Attribution**: Give credit to the source when using scraped content
+- **Respetar robots.txt**: Siempre verificar y respetar el archivo robots.txt del sitio web
+- **Verificar términos de servicio**: Asegurar que el scraping esté permitido por el sitio web
+- **Limitación de tasa**: Usar retrasos apropiados para evitar sobrecargar los servidores
+- **Atribución**: Dar crédito a la fuente al usar contenido extraído
 
-## Related resources
+## Recursos relacionados
 
 - <ApiLink to="class/BeautifulSoupCrawler">`BeautifulSoupCrawler`</ApiLink>
 - <ApiLink to="class/PlaywrightCrawler">`PlaywrightCrawler`</ApiLink>
 - <ApiLink to="class/Dataset">`Dataset`</ApiLink>
-- [Respect robots.txt file](./respect_robots_txt_file.mdx)
+- [Respetar archivo robots.txt](./respect_robots_txt_file.mdx)
