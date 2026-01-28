@@ -1,416 +1,905 @@
 ---
 id: driving-test-agent-visualization
-title: 🎨 Visualización del Proyecto - Agente para Aprender a Conducir
+title: 🚀 NEXUS AI - Sistema de Agentes para Conducir
 ---
 
 import ApiLink from '@site/src/components/ApiLink';
 
-Esta página proporciona una **visualización completa** del proyecto de agente de IA
-para pruebas de conducir, incluyendo diagramas de arquitectura, flujos de trabajo
-y comparaciones visuales.
-
-## 📊 Visión General del Proyecto
-
+{/* FUTURISTIC HERO SECTION */}
 {/* prettier-ignore */}
-<div style={{background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-  padding: '30px', borderRadius: '15px', color: 'white', marginBottom: '30px'}}
-  role="banner" aria-label="Resumen del proyecto">
-  <h2 style={{margin: 0, textAlign: 'center'}}>🎯 Sistema de Agentes de IA para Conducir</h2>
-  <p style={{textAlign: 'center', marginTop: '15px'}}>
-    Un ecosistema completo de agentes inteligentes para extraer, procesar y gestionar
-    preguntas de pruebas de conducir
-  </p>
-</div>
-
-## 🏗️ Arquitectura del Sistema
-
-### Diagrama de Componentes Principal
-
-```text
-┌─────────────────────────────────────────────────────────────────┐
-│              🚗 SISTEMA DE AGENTES DE CONDUCIR                  │
-└─────────────────────────────────────────────────────────────────┘
-                                │
-         ┌──────────────────────┼──────────────────────┐
-         │                      │                      │
-         ▼                      ▼                      ▼
-┌──────────────────┐  ┌──────────────────┐  ┌──────────────────┐
-│  📝 AGENTE       │  │  🤖 AGENTE IA    │  │  ⚡ AGENTE       │
-│     BÁSICO       │  │     COMPLETO     │  │     CUÁNTICO     │
-│                  │  │                  │  │                  │
-│ • BeautifulSoup  │  │ • Base de datos  │  │ • Vectorización  │
-│ • Playwright     │  │ • Deduplicación  │  │ • Búsqueda sem.  │
-│ • Extracción     │  │ • Categorización │  │ • ML automático  │
-│ • Almacenamiento │  │ • Exportación    │  │ • Cache intelig. │
-└──────────────────┘  └──────────────────┘  └──────────────────┘
-         │                      │                      │
-         └──────────────────────┼──────────────────────┘
-                                │
-                                ▼
-              ┌────────────────────────────────────┐
-              │     📦 CRAWLEE PYTHON FRAMEWORK    │
-              │                                    │
-              │  • BeautifulSoupCrawler            │
-              │  • PlaywrightCrawler               │
-              │  • Dataset & Storage               │
-              │  • Request Queue                   │
-              └────────────────────────────────────┘
-```
-
-## 🔄 Flujo de Trabajo del Agente
-
-### Proceso de Extracción de Preguntas
-
-```text
-┌─────────────────────────────────────────────────────────────────┐
-│                    📥 FLUJO DE PROCESAMIENTO                    │
-└─────────────────────────────────────────────────────────────────┘
-
-     ┌─────────┐
-     │ INICIO  │
-     └────┬────┘
-          │
-          ▼
-┌─────────────────────┐
-│  1️⃣ CONFIGURACIÓN   │──────── URLs de entrada
-│    del Crawler      │         Parámetros de configuración
-└─────────┬───────────┘
-          │
-          ▼
-┌─────────────────────┐
-│  2️⃣ SOLICITUD HTTP  │──────── HTTP request a la URL
-│    o Playwright     │         Renderizado de JavaScript
-└─────────┬───────────┘
-          │
-          ▼
-┌─────────────────────┐
-│  3️⃣ PARSING HTML    │──────── BeautifulSoup / Playwright
-│    Extracción DOM   │         Selectores CSS
-└─────────┬───────────┘
-          │
-          ▼
-┌─────────────────────┐
-│  4️⃣ PROCESAMIENTO   │──────── Limpieza de texto
-│    de Preguntas     │         Validación de datos
-└─────────┬───────────┘
-          │
-          ▼
-┌─────────────────────┐       ┌─────────────────┐
-│  5️⃣ DEDUPLICACIÓN   │──────►│ ¿Duplicado?     │
-│    Hash/Vectorial   │       │  Sí → Descartar │
-└─────────┬───────────┘       │  No → Continuar │
-          │                   └─────────────────┘
-          ▼
-┌─────────────────────┐
-│  6️⃣ CATEGORIZACIÓN  │──────── Análisis de keywords
-│    Inteligente      │         Asignación de categoría
-└─────────┬───────────┘
-          │
-          ▼
-┌─────────────────────┐
-│  7️⃣ ALMACENAMIENTO  │──────── JSON / CSV / Markdown
-│    Persistente      │         Dataset de Crawlee
-└─────────┬───────────┘
-          │
-          ▼
-┌─────────────────────┐
-│  8️⃣ CRAWLING        │──────── Encolar nuevos enlaces
-│    de Enlaces       │         Continuar exploración
-└─────────┬───────────┘
-          │
-          ▼
-     ┌────────────┐
-     │    FIN     │
-     │  📊 Reporte│
-     └────────────┘
-```
-
-## 📈 Comparación Visual de Agentes
-
-### Características por Nivel
-
-{/* prettier-ignore */}
-<div style={{display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)',
-  gap: '20px', marginBottom: '30px'}}>
-  <div style={{background: '#e8f5e9', padding: '20px', borderRadius: '10px',
-    textAlign: 'center'}}>
-    <h3 style={{color: '#2e7d32'}}>📝 Básico</h3>
-    <div style={{fontSize: '2em'}}>⭐</div>
-    <p><strong>~100 líneas</strong></p>
-    <ul style={{textAlign: 'left', fontSize: '0.9em'}}>
-      <li>Extracción HTML</li>
-      <li>Almacenamiento JSON</li>
-      <li>Crawling básico</li>
-    </ul>
-  </div>
-  <div style={{background: '#e3f2fd', padding: '20px', borderRadius: '10px',
-    textAlign: 'center'}}>
-    <h3 style={{color: '#1565c0'}}>🤖 IA Completo</h3>
-    <div style={{fontSize: '2em'}}>⭐⭐⭐</div>
-    <p><strong>~680 líneas</strong></p>
-    <ul style={{textAlign: 'left', fontSize: '0.9em'}}>
-      <li>Base de datos inteligente</li>
-      <li>Deduplicación MD5</li>
-      <li>Categorización automática</li>
-      <li>Multi-formato export</li>
-    </ul>
-  </div>
-  <div style={{background: '#f3e5f5', padding: '20px', borderRadius: '10px',
-    textAlign: 'center'}}>
-    <h3 style={{color: '#7b1fa2'}}>⚡ Cuántico</h3>
-    <div style={{fontSize: '2em'}}>⭐⭐⭐⭐⭐</div>
-    <p><strong>~1100+ líneas</strong></p>
-    <ul style={{textAlign: 'left', fontSize: '0.9em'}}>
-      <li>Vectorización semántica</li>
-      <li>Búsqueda por similitud</li>
-      <li>Cache L1/L2</li>
-      <li>ML automático</li>
-    </ul>
+<div style={{
+  background: 'linear-gradient(135deg, #0a0a1a 0%, #1a1a3e 50%, #0f0f2d 100%)',
+  padding: '60px 40px',
+  borderRadius: '24px',
+  position: 'relative',
+  overflow: 'hidden',
+  marginBottom: '40px',
+  border: '1px solid rgba(0, 255, 255, 0.2)',
+  boxShadow: '0 0 60px rgba(0, 255, 255, 0.1), inset 0 0 60px rgba(0, 255, 255, 0.05)'
+}}>
+  {/* Animated background grid */}
+  <div style={{
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundImage: 'linear-gradient(rgba(0, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 255, 255, 0.03) 1px, transparent 1px)',
+    backgroundSize: '50px 50px',
+    opacity: 0.5
+  }}></div>
+  <div style={{position: 'relative', zIndex: 1}}>
+    <div style={{
+      textAlign: 'center',
+      marginBottom: '20px'
+    }}>
+      <span style={{
+        fontSize: '0.9em',
+        color: '#00ffff',
+        letterSpacing: '8px',
+        textTransform: 'uppercase',
+        fontWeight: '300'
+      }}>◈ SISTEMA DE INTELIGENCIA ARTIFICIAL ◈</span>
+    </div>
+    <h1 style={{
+      margin: 0,
+      textAlign: 'center',
+      fontSize: '3.5em',
+      fontWeight: '800',
+      background: 'linear-gradient(90deg, #00ffff, #ff00ff, #00ffff)',
+      backgroundSize: '200% auto',
+      WebkitBackgroundClip: 'text',
+      WebkitTextFillColor: 'transparent',
+      letterSpacing: '4px'
+    }}>NEXUS DRIVER AI</h1>
+    <p style={{
+      textAlign: 'center',
+      color: 'rgba(255, 255, 255, 0.7)',
+      fontSize: '1.2em',
+      marginTop: '20px',
+      letterSpacing: '2px'
+    }}>
+      Plataforma de Agentes Inteligentes para Pruebas de Conducir
+    </p>
+    <div style={{
+      display: 'flex',
+      justifyContent: 'center',
+      gap: '30px',
+      marginTop: '30px',
+      flexWrap: 'wrap'
+    }}>
+      <span style={{
+        background: 'rgba(0, 255, 255, 0.1)',
+        border: '1px solid rgba(0, 255, 255, 0.3)',
+        padding: '10px 25px',
+        borderRadius: '30px',
+        color: '#00ffff',
+        fontSize: '0.85em'
+      }}>⚡ AI POWERED</span>
+      <span style={{
+        background: 'rgba(255, 0, 255, 0.1)',
+        border: '1px solid rgba(255, 0, 255, 0.3)',
+        padding: '10px 25px',
+        borderRadius: '30px',
+        color: '#ff00ff',
+        fontSize: '0.85em'
+      }}>🧠 MACHINE LEARNING</span>
+      <span style={{
+        background: 'rgba(255, 255, 0, 0.1)',
+        border: '1px solid rgba(255, 255, 0, 0.3)',
+        padding: '10px 25px',
+        borderRadius: '30px',
+        color: '#ffff00',
+        fontSize: '0.85em'
+      }}>🔮 QUANTUM READY</span>
+    </div>
   </div>
 </div>
 
-### Tabla Comparativa Detallada
+## ⬡ Arquitectura del Sistema
 
-| Característica | 📝 Básico | 🤖 IA Completo | ⚡ Cuántico |
-|----------------|-----------|----------------|-------------|
-| **Extracción HTML** | ✅ | ✅ | ✅ |
-| **Soporte JavaScript** | ✅ (Playwright) | ✅ | ✅ |
-| **Base de datos** | ❌ | ✅ JSON | ✅ Avanzada |
-| **Deduplicación** | ❌ | ✅ MD5 | ✅ Vectorial |
-| **Categorización** | ❌ Manual | ✅ Keywords | ✅ ML |
-| **Búsqueda** | ❌ | ✅ Keyword | ✅ Semántica |
-| **Exportación** | JSON | JSON/CSV/MD | ✅+ Metadata |
-| **Caché** | ❌ | ❌ | ✅ L1/L2 |
-| **Telemetría** | Básica | ✅ | ✅✅ Completa |
-| **Escalabilidad** | Limitada | Media | Alta |
-
-## 🎯 Casos de Uso
-
-### Diagrama de Casos de Uso
-
-```text
-┌─────────────────────────────────────────────────────────────────┐
-│                         👤 CASOS DE USO                         │
-└─────────────────────────────────────────────────────────────────┘
-
-                        ┌───────────────────┐
-                        │     👨‍🎓 ESTUDIANTE │
-                        └─────────┬─────────┘
-                                  │
-          ┌───────────────────────┼───────────────────────┐
-          │                       │                       │
-          ▼                       ▼                       ▼
-┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│   📚 ESTUDIAR   │    │   📝 PRACTICAR  │    │   📊 ANALIZAR   │
-│                 │    │                 │    │                 │
-│ • Ver preguntas │    │ • Tests auto    │    │ • Estadísticas  │
-│ • Explicaciones │    │ • Retroaliment. │    │ • Progreso      │
-│ • Categorías    │    │ • Puntuación    │    │ • Áreas débiles │
-└─────────────────┘    └─────────────────┘    └─────────────────┘
-
-                        ┌───────────────────┐
-                        │    👨‍🏫 INSTRUCTOR │
-                        └─────────┬─────────┘
-                                  │
-          ┌───────────────────────┼───────────────────────┐
-          │                       │                       │
-          ▼                       ▼                       ▼
-┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│  📋 CREAR TESTS │    │   👥 GESTIONAR  │    │   📈 REPORTES   │
-│                 │    │                 │    │                 │
-│ • Personalizado │    │ • Estudiantes   │    │ • Rendimiento   │
-│ • Por categoría │    │ • Grupos        │    │ • Tendencias    │
-│ • Por dificultad│    │ • Permisos      │    │ • Exportar      │
-└─────────────────┘    └─────────────────┘    └─────────────────┘
-```
-
-## 🗃️ Modelo de Datos
-
-### Estructura de una Pregunta
-
-```text
-┌─────────────────────────────────────────────────────────────────┐
-│                      📋 ESTRUCTURA DE PREGUNTA                  │
-└─────────────────────────────────────────────────────────────────┘
-
-┌─────────────────────────────────────────────────────────────────┐
-│ {                                                               │
-│   "id": "A1B2C3D4",           ← Identificador único (hash)      │
-│   "question": "¿Qué significa...?",  ← Texto de la pregunta     │
-│   "options": [                       ← Opciones de respuesta    │
-│     "A) Opción 1",                                              │
-│     "B) Opción 2",                                              │
-│     "C) Opción 3",                                              │
-│     "D) Opción 4"                                               │
-│   ],                                                            │
-│   "correct_answer": "B) Opción 2",   ← Respuesta correcta       │
-│   "explanation": "Porque...",        ← Explicación              │
-│   "category": "Señales",             ← Categoría                │
-│   "difficulty": "medium",            ← Nivel de dificultad      │
-│   "source_url": "https://...",       ← URL de origen            │
-│   "images": [{                       ← Imágenes asociadas       │
-│     "src": "...",                                               │
-│     "alt": "..."                                                │
-│   }],                                                           │
-│   "created_at": "2026-01-27T...",    ← Fecha de creación        │
-│   "times_seen": 1                    ← Contador de repeticiones │
-│ }                                                               │
-└─────────────────────────────────────────────────────────────────┘
-```
-
-## 🏷️ Categorías de Preguntas
-
-### Distribución Visual de Categorías
-
+{/* FUTURISTIC ARCHITECTURE CARDS */}
 {/* prettier-ignore */}
-<div style={{display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)',
-  gap: '15px', marginBottom: '20px'}} role="list" aria-label="Categorías de preguntas">
-  <div style={{background: '#ffcdd2', padding: '15px', borderRadius: '8px',
-    textAlign: 'center', color: '#333'}} role="listitem">
-    <h4 style={{margin: '0 0 10px 0', color: '#333'}}>🛑 Señales</h4>
-    <p style={{margin: 0, fontSize: '0.9em', color: '#333'}}>
-      Señalización, semáforos, indicaciones viales
+<div style={{
+  display: 'grid',
+  gridTemplateColumns: 'repeat(3, 1fr)',
+  gap: '20px',
+  marginBottom: '40px'
+}}>
+  {/* BASIC AGENT */}
+  <div style={{
+    background: 'linear-gradient(180deg, rgba(0, 255, 136, 0.1) 0%, rgba(0, 20, 10, 0.9) 100%)',
+    border: '1px solid rgba(0, 255, 136, 0.4)',
+    borderRadius: '16px',
+    padding: '25px',
+    position: 'relative',
+    overflow: 'hidden'
+  }}>
+    <div style={{
+      position: 'absolute',
+      top: '-50%',
+      left: '-50%',
+      width: '200%',
+      height: '200%',
+      background: 'radial-gradient(circle, rgba(0, 255, 136, 0.1) 0%, transparent 70%)',
+      pointerEvents: 'none'
+    }}></div>
+    <div style={{position: 'relative', zIndex: 1}}>
+      <div style={{
+        width: '60px',
+        height: '60px',
+        background: 'linear-gradient(135deg, #00ff88, #00aa55)',
+        borderRadius: '12px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        fontSize: '1.8em',
+        marginBottom: '15px',
+        boxShadow: '0 0 30px rgba(0, 255, 136, 0.4)'
+      }}>📝</div>
+      <h3 style={{
+        color: '#00ff88',
+        margin: '0 0 10px 0',
+        fontSize: '1.3em',
+        letterSpacing: '2px'
+      }}>BASIC.agent</h3>
+      <div style={{
+        color: 'rgba(255, 255, 255, 0.5)',
+        fontSize: '0.8em',
+        marginBottom: '15px'
+      }}>v1.0 • ~100 LOC</div>
+      <ul style={{
+        listStyle: 'none',
+        padding: 0,
+        margin: 0,
+        color: 'rgba(255, 255, 255, 0.8)',
+        fontSize: '0.9em'
+      }}>
+        <li style={{marginBottom: '8px'}}>◆ BeautifulSoup Parser</li>
+        <li style={{marginBottom: '8px'}}>◆ Playwright Support</li>
+        <li style={{marginBottom: '8px'}}>◆ JSON Storage</li>
+        <li>◆ Basic Crawling</li>
+      </ul>
+    </div>
+  </div>
+
+  {/* AI COMPLETE AGENT */}
+  <div style={{
+    background: 'linear-gradient(180deg, rgba(0, 136, 255, 0.1) 0%, rgba(0, 10, 30, 0.9) 100%)',
+    border: '1px solid rgba(0, 136, 255, 0.4)',
+    borderRadius: '16px',
+    padding: '25px',
+    position: 'relative',
+    overflow: 'hidden',
+    transform: 'scale(1.05)'
+  }}>
+    <div style={{
+      position: 'absolute',
+      top: '-10px',
+      right: '-10px',
+      background: 'linear-gradient(135deg, #ff00ff, #00ffff)',
+      padding: '5px 15px',
+      borderRadius: '20px',
+      fontSize: '0.7em',
+      fontWeight: 'bold',
+      color: '#000'
+    }}>★ POPULAR</div>
+    <div style={{
+      position: 'absolute',
+      top: '-50%',
+      left: '-50%',
+      width: '200%',
+      height: '200%',
+      background: 'radial-gradient(circle, rgba(0, 136, 255, 0.15) 0%, transparent 70%)',
+      pointerEvents: 'none'
+    }}></div>
+    <div style={{position: 'relative', zIndex: 1}}>
+      <div style={{
+        width: '60px',
+        height: '60px',
+        background: 'linear-gradient(135deg, #0088ff, #0055aa)',
+        borderRadius: '12px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        fontSize: '1.8em',
+        marginBottom: '15px',
+        boxShadow: '0 0 30px rgba(0, 136, 255, 0.4)'
+      }}>🤖</div>
+      <h3 style={{
+        color: '#0088ff',
+        margin: '0 0 10px 0',
+        fontSize: '1.3em',
+        letterSpacing: '2px'
+      }}>AI.complete</h3>
+      <div style={{
+        color: 'rgba(255, 255, 255, 0.5)',
+        fontSize: '0.8em',
+        marginBottom: '15px'
+      }}>v2.0 • ~680 LOC</div>
+      <ul style={{
+        listStyle: 'none',
+        padding: 0,
+        margin: 0,
+        color: 'rgba(255, 255, 255, 0.8)',
+        fontSize: '0.9em'
+      }}>
+        <li style={{marginBottom: '8px'}}>◆ Neural Database</li>
+        <li style={{marginBottom: '8px'}}>◆ MD5 Deduplication</li>
+        <li style={{marginBottom: '8px'}}>◆ Auto-Categorization</li>
+        <li>◆ Multi-Format Export</li>
+      </ul>
+    </div>
+  </div>
+
+  {/* QUANTUM AGENT */}
+  <div style={{
+    background: 'linear-gradient(180deg, rgba(255, 0, 255, 0.1) 0%, rgba(30, 0, 30, 0.9) 100%)',
+    border: '1px solid rgba(255, 0, 255, 0.4)',
+    borderRadius: '16px',
+    padding: '25px',
+    position: 'relative',
+    overflow: 'hidden'
+  }}>
+    <div style={{
+      position: 'absolute',
+      top: '-50%',
+      left: '-50%',
+      width: '200%',
+      height: '200%',
+      background: 'radial-gradient(circle, rgba(255, 0, 255, 0.1) 0%, transparent 70%)',
+      pointerEvents: 'none'
+    }}></div>
+    <div style={{position: 'relative', zIndex: 1}}>
+      <div style={{
+        width: '60px',
+        height: '60px',
+        background: 'linear-gradient(135deg, #ff00ff, #aa00aa)',
+        borderRadius: '12px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        fontSize: '1.8em',
+        marginBottom: '15px',
+        boxShadow: '0 0 30px rgba(255, 0, 255, 0.4)'
+      }}>⚡</div>
+      <h3 style={{
+        color: '#ff00ff',
+        margin: '0 0 10px 0',
+        fontSize: '1.3em',
+        letterSpacing: '2px'
+      }}>QUANTUM.flux</h3>
+      <div style={{
+        color: 'rgba(255, 255, 255, 0.5)',
+        fontSize: '0.8em',
+        marginBottom: '15px'
+      }}>v3.0 • ~1100+ LOC</div>
+      <ul style={{
+        listStyle: 'none',
+        padding: 0,
+        margin: 0,
+        color: 'rgba(255, 255, 255, 0.8)',
+        fontSize: '0.9em'
+      }}>
+        <li style={{marginBottom: '8px'}}>◆ Vector Embeddings</li>
+        <li style={{marginBottom: '8px'}}>◆ Semantic Search</li>
+        <li style={{marginBottom: '8px'}}>◆ L1/L2 Cache</li>
+        <li>◆ ML Auto-Training</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+## ⬡ Flujo de Procesamiento Neural
+
+{/* FUTURISTIC FLOW DIAGRAM */}
+{/* prettier-ignore */}
+<div style={{
+  background: 'linear-gradient(180deg, #0a0a1a 0%, #151530 100%)',
+  border: '1px solid rgba(0, 255, 255, 0.2)',
+  borderRadius: '20px',
+  padding: '40px',
+  marginBottom: '40px'
+}}>
+  <div style={{
+    display: 'grid',
+    gridTemplateColumns: 'repeat(4, 1fr)',
+    gap: '15px',
+    position: 'relative'
+  }}>
+    {/* Step 1 */}
+    <div style={{
+      background: 'rgba(0, 255, 255, 0.05)',
+      border: '1px solid rgba(0, 255, 255, 0.3)',
+      borderRadius: '12px',
+      padding: '20px',
+      textAlign: 'center'
+    }}>
+      <div style={{
+        width: '50px',
+        height: '50px',
+        background: 'linear-gradient(135deg, #00ffff, #0088ff)',
+        borderRadius: '50%',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        margin: '0 auto 15px',
+        fontSize: '1.5em',
+        boxShadow: '0 0 20px rgba(0, 255, 255, 0.5)'
+      }}>1</div>
+      <h4 style={{color: '#00ffff', margin: '0 0 8px 0', fontSize: '0.9em'}}>INPUT</h4>
+      <p style={{color: 'rgba(255,255,255,0.6)', fontSize: '0.8em', margin: 0}}>
+        URLs → Config
+      </p>
+    </div>
+    {/* Step 2 */}
+    <div style={{
+      background: 'rgba(0, 255, 136, 0.05)',
+      border: '1px solid rgba(0, 255, 136, 0.3)',
+      borderRadius: '12px',
+      padding: '20px',
+      textAlign: 'center'
+    }}>
+      <div style={{
+        width: '50px',
+        height: '50px',
+        background: 'linear-gradient(135deg, #00ff88, #00aa55)',
+        borderRadius: '50%',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        margin: '0 auto 15px',
+        fontSize: '1.5em',
+        boxShadow: '0 0 20px rgba(0, 255, 136, 0.5)'
+      }}>2</div>
+      <h4 style={{color: '#00ff88', margin: '0 0 8px 0', fontSize: '0.9em'}}>CRAWL</h4>
+      <p style={{color: 'rgba(255,255,255,0.6)', fontSize: '0.8em', margin: 0}}>
+        HTTP → Parse
+      </p>
+    </div>
+    {/* Step 3 */}
+    <div style={{
+      background: 'rgba(255, 136, 0, 0.05)',
+      border: '1px solid rgba(255, 136, 0, 0.3)',
+      borderRadius: '12px',
+      padding: '20px',
+      textAlign: 'center'
+    }}>
+      <div style={{
+        width: '50px',
+        height: '50px',
+        background: 'linear-gradient(135deg, #ff8800, #ff5500)',
+        borderRadius: '50%',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        margin: '0 auto 15px',
+        fontSize: '1.5em',
+        boxShadow: '0 0 20px rgba(255, 136, 0, 0.5)'
+      }}>3</div>
+      <h4 style={{color: '#ff8800', margin: '0 0 8px 0', fontSize: '0.9em'}}>PROCESS</h4>
+      <p style={{color: 'rgba(255,255,255,0.6)', fontSize: '0.8em', margin: 0}}>
+        AI → Categorize
+      </p>
+    </div>
+    {/* Step 4 */}
+    <div style={{
+      background: 'rgba(255, 0, 255, 0.05)',
+      border: '1px solid rgba(255, 0, 255, 0.3)',
+      borderRadius: '12px',
+      padding: '20px',
+      textAlign: 'center'
+    }}>
+      <div style={{
+        width: '50px',
+        height: '50px',
+        background: 'linear-gradient(135deg, #ff00ff, #aa00aa)',
+        borderRadius: '50%',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        margin: '0 auto 15px',
+        fontSize: '1.5em',
+        boxShadow: '0 0 20px rgba(255, 0, 255, 0.5)'
+      }}>4</div>
+      <h4 style={{color: '#ff00ff', margin: '0 0 8px 0', fontSize: '0.9em'}}>OUTPUT</h4>
+      <p style={{color: 'rgba(255,255,255,0.6)', fontSize: '0.8em', margin: 0}}>
+        JSON → API
+      </p>
+    </div>
+  </div>
+  {/* Connection line visual */}
+  <div style={{
+    height: '4px',
+    background: 'linear-gradient(90deg, #00ffff, #00ff88, #ff8800, #ff00ff)',
+    borderRadius: '2px',
+    margin: '25px 50px 0'
+  }}></div>
+</div>
+
+## ⬡ Matriz de Capacidades
+
+{/* FUTURISTIC COMPARISON TABLE */}
+{/* prettier-ignore */}
+<div style={{
+  background: 'linear-gradient(180deg, #0a0a1a 0%, #151530 100%)',
+  border: '1px solid rgba(0, 255, 255, 0.2)',
+  borderRadius: '20px',
+  padding: '30px',
+  marginBottom: '40px',
+  overflow: 'hidden'
+}}>
+  <table style={{
+    width: '100%',
+    borderCollapse: 'collapse',
+    color: 'white'
+  }}>
+    <thead>
+      <tr style={{borderBottom: '2px solid rgba(0, 255, 255, 0.3)'}}>
+        <th style={{padding: '15px', textAlign: 'left', color: '#00ffff', letterSpacing: '2px'}}>
+          FEATURE
+        </th>
+        <th style={{padding: '15px', textAlign: 'center', color: '#00ff88'}}>
+          BASIC
+        </th>
+        <th style={{padding: '15px', textAlign: 'center', color: '#0088ff'}}>
+          AI.complete
+        </th>
+        <th style={{padding: '15px', textAlign: 'center', color: '#ff00ff'}}>
+          QUANTUM
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style={{borderBottom: '1px solid rgba(255,255,255,0.1)'}}>
+        <td style={{padding: '12px 15px', color: 'rgba(255,255,255,0.8)'}}>HTML Extraction</td>
+        <td style={{padding: '12px 15px', textAlign: 'center', color: '#00ff88'}}>●</td>
+        <td style={{padding: '12px 15px', textAlign: 'center', color: '#0088ff'}}>●</td>
+        <td style={{padding: '12px 15px', textAlign: 'center', color: '#ff00ff'}}>●</td>
+      </tr>
+      <tr style={{borderBottom: '1px solid rgba(255,255,255,0.1)'}}>
+        <td style={{padding: '12px 15px', color: 'rgba(255,255,255,0.8)'}}>JavaScript Rendering</td>
+        <td style={{padding: '12px 15px', textAlign: 'center', color: '#00ff88'}}>●</td>
+        <td style={{padding: '12px 15px', textAlign: 'center', color: '#0088ff'}}>●</td>
+        <td style={{padding: '12px 15px', textAlign: 'center', color: '#ff00ff'}}>●</td>
+      </tr>
+      <tr style={{borderBottom: '1px solid rgba(255,255,255,0.1)'}}>
+        <td style={{padding: '12px 15px', color: 'rgba(255,255,255,0.8)'}}>Neural Database</td>
+        <td style={{padding: '12px 15px', textAlign: 'center', color: 'rgba(255,255,255,0.3)'}}>○</td>
+        <td style={{padding: '12px 15px', textAlign: 'center', color: '#0088ff'}}>●</td>
+        <td style={{padding: '12px 15px', textAlign: 'center', color: '#ff00ff'}}>●●</td>
+      </tr>
+      <tr style={{borderBottom: '1px solid rgba(255,255,255,0.1)'}}>
+        <td style={{padding: '12px 15px', color: 'rgba(255,255,255,0.8)'}}>Deduplication</td>
+        <td style={{padding: '12px 15px', textAlign: 'center', color: 'rgba(255,255,255,0.3)'}}>○</td>
+        <td style={{padding: '12px 15px', textAlign: 'center', color: '#0088ff'}}>MD5</td>
+        <td style={{padding: '12px 15px', textAlign: 'center', color: '#ff00ff'}}>VECTOR</td>
+      </tr>
+      <tr style={{borderBottom: '1px solid rgba(255,255,255,0.1)'}}>
+        <td style={{padding: '12px 15px', color: 'rgba(255,255,255,0.8)'}}>Auto-Categorization</td>
+        <td style={{padding: '12px 15px', textAlign: 'center', color: 'rgba(255,255,255,0.3)'}}>○</td>
+        <td style={{padding: '12px 15px', textAlign: 'center', color: '#0088ff'}}>KEYWORDS</td>
+        <td style={{padding: '12px 15px', textAlign: 'center', color: '#ff00ff'}}>ML</td>
+      </tr>
+      <tr style={{borderBottom: '1px solid rgba(255,255,255,0.1)'}}>
+        <td style={{padding: '12px 15px', color: 'rgba(255,255,255,0.8)'}}>Semantic Search</td>
+        <td style={{padding: '12px 15px', textAlign: 'center', color: 'rgba(255,255,255,0.3)'}}>○</td>
+        <td style={{padding: '12px 15px', textAlign: 'center', color: 'rgba(255,255,255,0.3)'}}>○</td>
+        <td style={{padding: '12px 15px', textAlign: 'center', color: '#ff00ff'}}>●●</td>
+      </tr>
+      <tr style={{borderBottom: '1px solid rgba(255,255,255,0.1)'}}>
+        <td style={{padding: '12px 15px', color: 'rgba(255,255,255,0.8)'}}>Cache System</td>
+        <td style={{padding: '12px 15px', textAlign: 'center', color: 'rgba(255,255,255,0.3)'}}>○</td>
+        <td style={{padding: '12px 15px', textAlign: 'center', color: 'rgba(255,255,255,0.3)'}}>○</td>
+        <td style={{padding: '12px 15px', textAlign: 'center', color: '#ff00ff'}}>L1/L2</td>
+      </tr>
+      <tr>
+        <td style={{padding: '12px 15px', color: 'rgba(255,255,255,0.8)'}}>Performance</td>
+        <td style={{padding: '12px 15px', textAlign: 'center', color: '#00ff88'}}>1x</td>
+        <td style={{padding: '12px 15px', textAlign: 'center', color: '#0088ff'}}>5x</td>
+        <td style={{padding: '12px 15px', textAlign: 'center', color: '#ff00ff'}}>10x+</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+## ⬡ Categorías de Preguntas
+
+{/* FUTURISTIC CATEGORY GRID */}
+{/* prettier-ignore */}
+<div style={{
+  display: 'grid',
+  gridTemplateColumns: 'repeat(3, 1fr)',
+  gap: '15px',
+  marginBottom: '40px'
+}}>
+  <div style={{
+    background: 'linear-gradient(135deg, rgba(255, 0, 0, 0.1) 0%, rgba(30, 0, 0, 0.8) 100%)',
+    border: '1px solid rgba(255, 0, 0, 0.4)',
+    borderRadius: '12px',
+    padding: '20px',
+    textAlign: 'center'
+  }}>
+    <div style={{fontSize: '2.5em', marginBottom: '10px'}}>🛑</div>
+    <h4 style={{color: '#ff4444', margin: '0 0 8px 0', letterSpacing: '1px'}}>SEÑALES</h4>
+    <p style={{color: 'rgba(255,255,255,0.6)', fontSize: '0.85em', margin: 0}}>
+      Tráfico • Semáforos • Indicaciones
     </p>
   </div>
-  <div style={{background: '#c8e6c9', padding: '15px', borderRadius: '8px',
-    textAlign: 'center', color: '#333'}} role="listitem">
-    <h4 style={{margin: '0 0 10px 0', color: '#333'}}>📋 Normativa</h4>
-    <p style={{margin: 0, fontSize: '0.9em', color: '#333'}}>
-      Leyes, reglamentos, multas, infracciones
+  <div style={{
+    background: 'linear-gradient(135deg, rgba(0, 255, 136, 0.1) 0%, rgba(0, 30, 20, 0.8) 100%)',
+    border: '1px solid rgba(0, 255, 136, 0.4)',
+    borderRadius: '12px',
+    padding: '20px',
+    textAlign: 'center'
+  }}>
+    <div style={{fontSize: '2.5em', marginBottom: '10px'}}>📋</div>
+    <h4 style={{color: '#00ff88', margin: '0 0 8px 0', letterSpacing: '1px'}}>NORMATIVA</h4>
+    <p style={{color: 'rgba(255,255,255,0.6)', fontSize: '0.85em', margin: 0}}>
+      Leyes • Reglamentos • Infracciones
     </p>
   </div>
-  <div style={{background: '#b3e5fc', padding: '15px', borderRadius: '8px',
-    textAlign: 'center', color: '#333'}} role="listitem">
-    <h4 style={{margin: '0 0 10px 0', color: '#333'}}>⚙️ Mecánica</h4>
-    <p style={{margin: 0, fontSize: '0.9em', color: '#333'}}>
-      Motor, frenos, mantenimiento del vehículo
+  <div style={{
+    background: 'linear-gradient(135deg, rgba(0, 136, 255, 0.1) 0%, rgba(0, 20, 40, 0.8) 100%)',
+    border: '1px solid rgba(0, 136, 255, 0.4)',
+    borderRadius: '12px',
+    padding: '20px',
+    textAlign: 'center'
+  }}>
+    <div style={{fontSize: '2.5em', marginBottom: '10px'}}>⚙️</div>
+    <h4 style={{color: '#0088ff', margin: '0 0 8px 0', letterSpacing: '1px'}}>MECÁNICA</h4>
+    <p style={{color: 'rgba(255,255,255,0.6)', fontSize: '0.85em', margin: 0}}>
+      Motor • Frenos • Mantenimiento
     </p>
   </div>
-  <div style={{background: '#fff9c4', padding: '15px', borderRadius: '8px',
-    textAlign: 'center', color: '#333'}} role="listitem">
-    <h4 style={{margin: '0 0 10px 0', color: '#333'}}>🛡️ Seguridad</h4>
-    <p style={{margin: 0, fontSize: '0.9em', color: '#333'}}>
-      Cinturón, airbag, emergencias
+  <div style={{
+    background: 'linear-gradient(135deg, rgba(255, 255, 0, 0.1) 0%, rgba(30, 30, 0, 0.8) 100%)',
+    border: '1px solid rgba(255, 255, 0, 0.4)',
+    borderRadius: '12px',
+    padding: '20px',
+    textAlign: 'center'
+  }}>
+    <div style={{fontSize: '2.5em', marginBottom: '10px'}}>🛡️</div>
+    <h4 style={{color: '#ffff00', margin: '0 0 8px 0', letterSpacing: '1px'}}>SEGURIDAD</h4>
+    <p style={{color: 'rgba(255,255,255,0.6)', fontSize: '0.85em', margin: 0}}>
+      Cinturón • Airbag • Emergencias
     </p>
   </div>
-  <div style={{background: '#d1c4e9', padding: '15px', borderRadius: '8px',
-    textAlign: 'center', color: '#333'}} role="listitem">
-    <h4 style={{margin: '0 0 10px 0', color: '#333'}}>🚗 Conducción</h4>
-    <p style={{margin: 0, fontSize: '0.9em', color: '#333'}}>
-      Velocidad, adelantamiento, maniobras
+  <div style={{
+    background: 'linear-gradient(135deg, rgba(255, 0, 255, 0.1) 0%, rgba(30, 0, 30, 0.8) 100%)',
+    border: '1px solid rgba(255, 0, 255, 0.4)',
+    borderRadius: '12px',
+    padding: '20px',
+    textAlign: 'center'
+  }}>
+    <div style={{fontSize: '2.5em', marginBottom: '10px'}}>🚗</div>
+    <h4 style={{color: '#ff00ff', margin: '0 0 8px 0', letterSpacing: '1px'}}>CONDUCCIÓN</h4>
+    <p style={{color: 'rgba(255,255,255,0.6)', fontSize: '0.85em', margin: 0}}>
+      Velocidad • Adelantar • Maniobras
     </p>
   </div>
-  <div style={{background: '#ffe0b2', padding: '15px', borderRadius: '8px',
-    textAlign: 'center', color: '#333'}} role="listitem">
-    <h4 style={{margin: '0 0 10px 0', color: '#333'}}>🔀 Prioridad</h4>
-    <p style={{margin: 0, fontSize: '0.9em', color: '#333'}}>
-      Intersecciones, rotondas, ceder el paso
+  <div style={{
+    background: 'linear-gradient(135deg, rgba(0, 255, 255, 0.1) 0%, rgba(0, 30, 30, 0.8) 100%)',
+    border: '1px solid rgba(0, 255, 255, 0.4)',
+    borderRadius: '12px',
+    padding: '20px',
+    textAlign: 'center'
+  }}>
+    <div style={{fontSize: '2.5em', marginBottom: '10px'}}>🔀</div>
+    <h4 style={{color: '#00ffff', margin: '0 0 8px 0', letterSpacing: '1px'}}>PRIORIDAD</h4>
+    <p style={{color: 'rgba(255,255,255,0.6)', fontSize: '0.85em', margin: 0}}>
+      Intersecciones • Rotondas • Ceder
     </p>
   </div>
 </div>
 
-## 📊 Pipeline de Procesamiento
+## ⬡ Estructura de Datos
 
-### Arquitectura de Pipeline
+{/* FUTURISTIC CODE BLOCK */}
+{/* prettier-ignore */}
+<div style={{
+  background: 'linear-gradient(180deg, #0d1117 0%, #161b22 100%)',
+  border: '1px solid rgba(0, 255, 255, 0.2)',
+  borderRadius: '16px',
+  overflow: 'hidden',
+  marginBottom: '40px'
+}}>
+  <div style={{
+    background: 'linear-gradient(90deg, rgba(0, 255, 255, 0.1) 0%, rgba(255, 0, 255, 0.1) 100%)',
+    padding: '12px 20px',
+    borderBottom: '1px solid rgba(0, 255, 255, 0.2)',
+    display: 'flex',
+    alignItems: 'center',
+    gap: '10px'
+  }}>
+    <span style={{width: '12px', height: '12px', borderRadius: '50%', background: '#ff5f56'}}></span>
+    <span style={{width: '12px', height: '12px', borderRadius: '50%', background: '#ffbd2e'}}></span>
+    <span style={{width: '12px', height: '12px', borderRadius: '50%', background: '#27ca40'}}></span>
+    <span style={{marginLeft: '10px', color: 'rgba(255,255,255,0.5)', fontSize: '0.85em'}}>
+      question.schema.json
+    </span>
+  </div>
+  <pre style={{
+    margin: 0,
+    padding: '20px',
+    color: '#e6e6e6',
+    fontSize: '0.9em',
+    lineHeight: '1.6',
+    overflow: 'auto'
+  }}>{`{
+  "id": "Q-7X9F2K",              // ← Unique Hash ID
+  "question": "¿Qué significa...?",
+  "options": [
+    "A) Primera opción",
+    "B) Segunda opción",
+    "C) Tercera opción",
+    "D) Cuarta opción"
+  ],
+  "correct_answer": "B",        // ← Respuesta correcta
+  "category": "SEÑALES",        // ← Auto-categorized
+  "difficulty": 0.72,           // ← ML Score [0-1]
+  "embedding": [0.12, 0.34...], // ← Vector 128D
+  "metadata": {
+    "source": "https://...",
+    "created": "2026-01-28T...",
+    "version": "3.0"
+  }
+}`}</pre>
+</div>
 
-```text
-┌─────────────────────────────────────────────────────────────────┐
-│                    ⚡ PIPELINE DE PROCESAMIENTO                  │
-└─────────────────────────────────────────────────────────────────┘
+## ⬡ Quick Start
 
-╔════════════════╗     ╔════════════════╗     ╔════════════════╗
-║  🌐 ENTRADA    ║     ║  🔄 PROCESO    ║     ║  📤 SALIDA     ║
-║                ║     ║                ║     ║                ║
-║  URLs de       ║────►║  Crawling      ║────►║  JSON          ║
-║  pruebas de    ║     ║  Parsing       ║     ║  CSV           ║
-║  conducir      ║     ║  Extracción    ║     ║  Markdown      ║
-║                ║     ║  Validación    ║     ║  API           ║
-╚════════════════╝     ╚════════════════╝     ╚════════════════╝
-        │                      │                      │
-        │                      │                      │
-        ▼                      ▼                      ▼
-┌────────────────┐    ┌────────────────┐    ┌────────────────┐
-│ • DGT oficial  │    │ • Limpieza     │    │ • Estudiar     │
-│ • Autoescuelas │    │ • Normalizar   │    │ • Practicar    │
-│ • Sitios educ. │    │ • Categorizar  │    │ • Analizar     │
-└────────────────┘    └────────────────┘    └────────────────┘
-```
+{/* FUTURISTIC QUICK START */}
+{/* prettier-ignore */}
+<div style={{
+  background: 'linear-gradient(135deg, #0a0a1a 0%, #1a1a3e 100%)',
+  border: '1px solid rgba(0, 255, 255, 0.2)',
+  borderRadius: '20px',
+  padding: '40px',
+  marginBottom: '40px'
+}}>
+  <div style={{
+    display: 'grid',
+    gridTemplateColumns: 'repeat(3, 1fr)',
+    gap: '30px'
+  }}>
+    {/* Step 1 */}
+    <div style={{textAlign: 'center'}}>
+      <div style={{
+        width: '80px',
+        height: '80px',
+        background: 'linear-gradient(135deg, #00ffff, #0088ff)',
+        borderRadius: '20px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        fontSize: '2em',
+        margin: '0 auto 20px',
+        boxShadow: '0 0 40px rgba(0, 255, 255, 0.3)'
+      }}>📦</div>
+      <h4 style={{color: '#00ffff', margin: '0 0 10px 0'}}>01. INSTALL</h4>
+      <code style={{
+        background: 'rgba(0, 255, 255, 0.1)',
+        padding: '8px 16px',
+        borderRadius: '8px',
+        color: '#00ffff',
+        fontSize: '0.85em'
+      }}>pip install crawlee</code>
+    </div>
+    {/* Step 2 */}
+    <div style={{textAlign: 'center'}}>
+      <div style={{
+        width: '80px',
+        height: '80px',
+        background: 'linear-gradient(135deg, #00ff88, #00aa55)',
+        borderRadius: '20px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        fontSize: '2em',
+        margin: '0 auto 20px',
+        boxShadow: '0 0 40px rgba(0, 255, 136, 0.3)'
+      }}>⚙️</div>
+      <h4 style={{color: '#00ff88', margin: '0 0 10px 0'}}>02. CONFIGURE</h4>
+      <code style={{
+        background: 'rgba(0, 255, 136, 0.1)',
+        padding: '8px 16px',
+        borderRadius: '8px',
+        color: '#00ff88',
+        fontSize: '0.85em'
+      }}>Add URLs + params</code>
+    </div>
+    {/* Step 3 */}
+    <div style={{textAlign: 'center'}}>
+      <div style={{
+        width: '80px',
+        height: '80px',
+        background: 'linear-gradient(135deg, #ff00ff, #aa00aa)',
+        borderRadius: '20px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        fontSize: '2em',
+        margin: '0 auto 20px',
+        boxShadow: '0 0 40px rgba(255, 0, 255, 0.3)'
+      }}>🚀</div>
+      <h4 style={{color: '#ff00ff', margin: '0 0 10px 0'}}>03. LAUNCH</h4>
+      <code style={{
+        background: 'rgba(255, 0, 255, 0.1)',
+        padding: '8px 16px',
+        borderRadius: '8px',
+        color: '#ff00ff',
+        fontSize: '0.85em'
+      }}>python agent.py</code>
+    </div>
+  </div>
+</div>
 
-## 🚀 Inicio Rápido
-
-### Diagrama de Inicio
-
-```text
-┌─────────────────────────────────────────────────────────────────┐
-│                    🚀 INICIO RÁPIDO EN 3 PASOS                  │
-└─────────────────────────────────────────────────────────────────┘
-
-   PASO 1                   PASO 2                   PASO 3
-┌───────────┐           ┌───────────┐           ┌───────────┐
-│   📦      │           │   📝      │           │   ▶️      │
-│  INSTALAR │   ──►     │ CONFIGURAR│   ──►     │  EJECUTAR │
-│           │           │           │           │           │
-│ pip install│          │ Agregar   │           │ python    │
-│ crawlee   │           │ URLs      │           │ agent.py  │
-└───────────┘           └───────────┘           └───────────┘
-```
-
-### Código de Ejemplo Visual
+## ⬡ Code Example
 
 ```python
-# 1️⃣ Importar
-from crawlee.crawlers import BeautifulSoupCrawler
+# 🚀 NEXUS DRIVER AI - Quick Start
 
-# 2️⃣ Configurar
-crawler = BeautifulSoupCrawler(max_requests_per_crawl=100)
+from crawlee.crawlers import BeautifulSoupCrawler, BeautifulSoupCrawlingContext
 
-# 3️⃣ Definir handler
-@crawler.router.default_handler
-async def handle(context):
-    # 📝 Extraer pregunta
-    question = context.soup.find('.question')
-    # 💾 Guardar datos
-    await context.push_data({'pregunta': question.text})
-    # 🔗 Seguir enlaces
-    await context.enqueue_links()
+async def main():
+    # Initialize the neural crawler
+    crawler = BeautifulSoupCrawler(
+        max_requests_per_crawl=100,  # Quantum limit
+    )
 
-# 4️⃣ Ejecutar
-await crawler.run(['https://ejemplo.com/preguntas'])
+    @crawler.router.default_handler
+    async def extract_handler(context: BeautifulSoupCrawlingContext) -> None:
+        # 🧠 Extract question data
+        questions = context.soup.select('.question-container')
+
+        for q in questions:
+            await context.push_data({
+                'question': q.select_one('.text').get_text(),
+                'options': [opt.get_text() for opt in q.select('.option')],
+                'category': 'AUTO_DETECT',  # ML categorization
+            })
+
+        # 🔗 Follow pagination links
+        await context.enqueue_links(selector='a.next-page')
+
+    # 🚀 Launch the crawler
+    await crawler.run(['https://driving-test-site.com/questions'])
+
+if __name__ == '__main__':
+    import asyncio
+    asyncio.run(main())
 ```
 
-## 📚 Documentación Relacionada
+## ⬡ Documentación
 
+{/* FUTURISTIC DOC LINKS */}
 {/* prettier-ignore */}
-<div style={{display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '15px'}}>
-  <div style={{border: '2px solid #e0e0e0', padding: '20px', borderRadius: '10px'}}>
-    <h4>📝 Agente Básico</h4>
-    <p>Comenzar con scraping simple</p>
-    <a href="./driving_test_question_agent">Ver documentación →</a>
-  </div>
-  <div style={{border: '2px solid #e0e0e0', padding: '20px', borderRadius: '10px'}}>
-    <h4>🤖 Agente IA Completo</h4>
-    <p>Sistema con base de datos</p>
-    <a href="./driving_test_ai_agent_complete">Ver documentación →</a>
-  </div>
-  <div style={{border: '2px solid #e0e0e0', padding: '20px', borderRadius: '10px'}}>
-    <h4>⚡ Agente Cuántico</h4>
-    <p>Tecnología de vanguardia</p>
-    <a href="./driving_test_quantum_agent">Ver documentación →</a>
-  </div>
-  <div style={{border: '2px solid #e0e0e0', padding: '20px', borderRadius: '10px'}}>
-    <h4>📖 Crawlee Python</h4>
-    <p>Documentación del framework</p>
-    <ApiLink to="class/BeautifulSoupCrawler">Ver API →</ApiLink>
-  </div>
+<div style={{
+  display: 'grid',
+  gridTemplateColumns: 'repeat(2, 1fr)',
+  gap: '20px',
+  marginBottom: '40px'
+}}>
+  <a href="./driving_test_question_agent" style={{
+    background: 'linear-gradient(135deg, rgba(0, 255, 136, 0.1) 0%, rgba(0, 20, 10, 0.9) 100%)',
+    border: '1px solid rgba(0, 255, 136, 0.4)',
+    borderRadius: '16px',
+    padding: '25px',
+    textDecoration: 'none',
+    display: 'block',
+    transition: 'transform 0.2s'
+  }}>
+    <h4 style={{color: '#00ff88', margin: '0 0 8px 0'}}>📝 BASIC.agent</h4>
+    <p style={{color: 'rgba(255,255,255,0.6)', margin: 0, fontSize: '0.9em'}}>
+      Start with simple scraping →
+    </p>
+  </a>
+  <a href="./driving_test_ai_agent_complete" style={{
+    background: 'linear-gradient(135deg, rgba(0, 136, 255, 0.1) 0%, rgba(0, 10, 30, 0.9) 100%)',
+    border: '1px solid rgba(0, 136, 255, 0.4)',
+    borderRadius: '16px',
+    padding: '25px',
+    textDecoration: 'none',
+    display: 'block',
+    transition: 'transform 0.2s'
+  }}>
+    <h4 style={{color: '#0088ff', margin: '0 0 8px 0'}}>🤖 AI.complete</h4>
+    <p style={{color: 'rgba(255,255,255,0.6)', margin: 0, fontSize: '0.9em'}}>
+      Full AI system with database →
+    </p>
+  </a>
+  <a href="./driving_test_quantum_agent" style={{
+    background: 'linear-gradient(135deg, rgba(255, 0, 255, 0.1) 0%, rgba(30, 0, 30, 0.9) 100%)',
+    border: '1px solid rgba(255, 0, 255, 0.4)',
+    borderRadius: '16px',
+    padding: '25px',
+    textDecoration: 'none',
+    display: 'block',
+    transition: 'transform 0.2s'
+  }}>
+    <h4 style={{color: '#ff00ff', margin: '0 0 8px 0'}}>⚡ QUANTUM.flux</h4>
+    <p style={{color: 'rgba(255,255,255,0.6)', margin: 0, fontSize: '0.9em'}}>
+      Cutting-edge technology →
+    </p>
+  </a>
+  <a href="https://crawlee.dev/python/" style={{
+    background: 'linear-gradient(135deg, rgba(0, 255, 255, 0.1) 0%, rgba(0, 30, 30, 0.9) 100%)',
+    border: '1px solid rgba(0, 255, 255, 0.4)',
+    borderRadius: '16px',
+    padding: '25px',
+    textDecoration: 'none',
+    display: 'block',
+    transition: 'transform 0.2s'
+  }}>
+    <h4 style={{color: '#00ffff', margin: '0 0 8px 0'}}>📖 Crawlee Python</h4>
+    <p style={{color: 'rgba(255,255,255,0.6)', margin: 0, fontSize: '0.9em'}}>
+      Framework documentation →
+    </p>
+  </a>
 </div>
 
 ---
 
+{/* FUTURISTIC FOOTER */}
 {/* prettier-ignore */}
-<div style={{background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-  padding: '20px', borderRadius: '10px', color: 'white', marginTop: '30px',
-  textAlign: 'center'}}>
-  <strong>🚗 Proyecto de Agente de IA para Pruebas de Conducir</strong>
-  <br/>
-  <small>Construido con Crawlee Python - Framework de Web Scraping de Clase Mundial</small>
+<div style={{
+  background: 'linear-gradient(135deg, #0a0a1a 0%, #1a1a3e 50%, #0f0f2d 100%)',
+  padding: '40px',
+  borderRadius: '20px',
+  textAlign: 'center',
+  border: '1px solid rgba(0, 255, 255, 0.2)',
+  marginTop: '40px'
+}}>
+  <div style={{
+    fontSize: '0.8em',
+    color: 'rgba(0, 255, 255, 0.5)',
+    letterSpacing: '4px',
+    marginBottom: '15px'
+  }}>◈ POWERED BY ◈</div>
+  <h3 style={{
+    margin: '0 0 15px 0',
+    background: 'linear-gradient(90deg, #00ffff, #ff00ff)',
+    WebkitBackgroundClip: 'text',
+    WebkitTextFillColor: 'transparent',
+    fontSize: '1.5em',
+    letterSpacing: '3px'
+  }}>NEXUS DRIVER AI</h3>
+  <p style={{
+    color: 'rgba(255, 255, 255, 0.5)',
+    margin: '0 0 20px 0'
+  }}>
+    Built with Crawlee Python • World-Class Web Scraping Framework
+  </p>
+  <div style={{
+    display: 'flex',
+    justifyContent: 'center',
+    gap: '15px',
+    flexWrap: 'wrap'
+  }}>
+    <span style={{
+      background: 'rgba(0, 255, 255, 0.1)',
+      border: '1px solid rgba(0, 255, 255, 0.3)',
+      padding: '8px 20px',
+      borderRadius: '20px',
+      color: '#00ffff',
+      fontSize: '0.8em'
+    }}>v3.0.0</span>
+    <span style={{
+      background: 'rgba(0, 255, 136, 0.1)',
+      border: '1px solid rgba(0, 255, 136, 0.3)',
+      padding: '8px 20px',
+      borderRadius: '20px',
+      color: '#00ff88',
+      fontSize: '0.8em'
+    }}>MIT License</span>
+    <span style={{
+      background: 'rgba(255, 0, 255, 0.1)',
+      border: '1px solid rgba(255, 0, 255, 0.3)',
+      padding: '8px 20px',
+      borderRadius: '20px',
+      color: '#ff00ff',
+      fontSize: '0.8em'
+    }}>2026</span>
+  </div>
 </div>
