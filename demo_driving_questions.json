@@ -1,0 +1,129 @@
+{
+  "questions": {
+    "f85f5b17b85b": {
+      "id": "f85f5b17b85b",
+      "question": "¿Qué significa una señal de STOP?",
+      "options": [
+        "A) Reducir la velocidad",
+        "B) Detenerse completamente",
+        "C) Ceder el paso",
+        "D) Precaución, peligro adelante"
+      ],
+      "correct_answer": "B) Detenerse completamente",
+      "explanation": "La señal de STOP indica que el conductor debe detenerse completamente antes de continuar.",
+      "category": "Señales",
+      "created_at": "2026-01-28T03:45:37.845701"
+    },
+    "4dd0eefe7839": {
+      "id": "4dd0eefe7839",
+      "question": "¿Cuál es el límite de velocidad máximo en autopistas en España?",
+      "options": [
+        "A) 100 km/h",
+        "B) 110 km/h",
+        "C) 120 km/h",
+        "D) 130 km/h"
+      ],
+      "correct_answer": "C) 120 km/h",
+      "explanation": "En España, el límite máximo de velocidad en autopistas y autovías es de 120 km/h para turismos.",
+      "category": "Normativa",
+      "created_at": "2026-01-28T03:45:37.845730"
+    },
+    "6c98f054a8b0": {
+      "id": "6c98f054a8b0",
+      "question": "¿Con qué frecuencia se debe revisar la presión de los neumáticos?",
+      "options": [
+        "A) Una vez al año",
+        "B) Cada 6 meses",
+        "C) Al menos una vez al mes",
+        "D) Solo cuando se nota que están desinflados"
+      ],
+      "correct_answer": "C) Al menos una vez al mes",
+      "explanation": "Se recomienda revisar la presión de los neumáticos al menos una vez al mes y antes de viajes largos.",
+      "category": "Mecánica",
+      "created_at": "2026-01-28T03:45:37.845746"
+    },
+    "bade28826886": {
+      "id": "bade28826886",
+      "question": "¿Cuándo es obligatorio el uso del cinturón de seguridad?",
+      "options": [
+        "A) Solo en carretera",
+        "B) Solo en asientos delanteros",
+        "C) Siempre, para todos los ocupantes",
+        "D) Solo cuando hay niños en el vehículo"
+      ],
+      "correct_answer": "C) Siempre, para todos los ocupantes",
+      "explanation": "El cinturón de seguridad es obligatorio para todos los ocupantes del vehículo en cualquier tipo de vía.",
+      "category": "Seguridad",
+      "created_at": "2026-01-28T03:45:37.845758"
+    },
+    "7743014ee918": {
+      "id": "7743014ee918",
+      "question": "¿Qué distancia de seguridad se debe mantener con el vehículo de adelante?",
+      "options": [
+        "A) 2 metros",
+        "B) Lo que se recorra en 2 segundos",
+        "C) 10 metros",
+        "D) 5 metros"
+      ],
+      "correct_answer": "B) Lo que se recorra en 2 segundos",
+      "explanation": "La regla de los 2 segundos permite mantener una distancia segura adaptada a la velocidad.",
+      "category": "Conducción",
+      "created_at": "2026-01-28T03:45:37.845773"
+    },
+    "9ea93713b607": {
+      "id": "9ea93713b607",
+      "question": "¿Quién tiene prioridad en una rotonda?",
+      "options": [
+        "A) El que entra a la rotonda",
+        "B) El que está dentro de la rotonda",
+        "C) El que viene por la derecha",
+        "D) El vehículo más grande"
+      ],
+      "correct_answer": "B) El que está dentro de la rotonda",
+      "explanation": "Los vehículos que circulan por la rotonda tienen prioridad sobre los que pretenden entrar.",
+      "category": "Prioridad",
+      "created_at": "2026-01-28T03:45:37.845801"
+    },
+    "b5578e39c208": {
+      "id": "b5578e39c208",
+      "question": "¿Qué indica una luz amarilla fija del semáforo?",
+      "options": [
+        "A) Paso permitido",
+        "B) Detenerse si es posible hacerlo de forma segura",
+        "C) Acelerar para pasar",
+        "D) Ceder el paso a peatones"
+      ],
+      "correct_answer": "B) Detenerse si es posible hacerlo de forma segura",
+      "explanation": "La luz amarilla indica que el semáforo cambiará a rojo. Debe detenerse si puede hacerlo de forma segura.",
+      "category": "Señales",
+      "created_at": "2026-01-28T03:45:37.845836"
+    },
+    "dda0cdd39582": {
+      "id": "dda0cdd39582",
+      "question": "¿Cada cuántos kilómetros se debe cambiar el aceite del motor?",
+      "options": [
+        "A) Cada 5,000 km",
+        "B) Entre 10,000 y 15,000 km según fabricante",
+        "C) Cada 50,000 km",
+        "D) Solo cuando el testigo se enciende"
+      ],
+      "correct_answer": "B) Entre 10,000 y 15,000 km según fabricante",
+      "explanation": "El intervalo de cambio de aceite varía según el fabricante y tipo de aceite, generalmente entre 10,000 y 15,000 km.",
+      "category": "Mecánica",
+      "created_at": "2026-01-28T03:45:37.845863"
+    }
+  },
+  "stats": {
+    "total_questions": 8,
+    "unique_questions": 8,
+    "categories": {
+      "Señales": 2,
+      "Normativa": 1,
+      "Mecánica": 2,
+      "Seguridad": 1,
+      "Conducción": 1,
+      "Prioridad": 1
+    }
+  },
+  "last_updated": "2026-01-28T03:45:37.846570"
+}
