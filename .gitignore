@@ -87,3 +87,7 @@ tmp/
 node_modules/
 package-lock.json
 package.json
+
+# Demo output files
+docs/examples/code_examples/demo_*.json
+docs/examples/code_examples/*.log
