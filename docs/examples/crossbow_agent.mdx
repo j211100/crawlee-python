@@ -1,0 +1,142 @@
+---
+id: crossbow-agent
+title: Agente para información de ballestas
+---
+
+import ApiLink from '@site/src/components/ApiLink';
+import CodeBlock from '@theme/CodeBlock';
+
+import BeautifulSoupSource from '!!raw-loader!./code_examples/crossbow_agent.py';
+import PlaywrightSource from '!!raw-loader!./code_examples/crossbow_agent_pw.py';
+
+Este ejemplo demuestra cómo crear un agente que extrae información sobre ballestas desde sitios web. Esto es útil para construir bases de datos de productos, comparadores de precios, o plataformas de reseñas.
+
+## Agente de información de ballestas
+
+El ejemplo muestra cómo:
+
+1. **Extraer información de productos** desde tiendas en línea y sitios especializados
+2. **Extraer datos estructurados** incluyendo especificaciones técnicas, precios y reseñas
+3. **Almacenar los datos** para análisis, comparación o integración con otros sistemas
+4. **Navegar** a través de catálogos de productos y categorías
+
+## Usando BeautifulSoupCrawler
+
+Usar <ApiLink to="class/BeautifulSoupCrawler">`BeautifulSoupCrawler`</ApiLink> cuando el sitio web de productos sirve contenido HTML estático. Este enfoque es más rápido y eficiente para tiendas en línea tradicionales.
+
+<CodeBlock className="language-python">
+    {BeautifulSoupSource}
+</CodeBlock>
+
+El crawler extrae:
+- **Nombre del producto**: Marca y modelo de la ballesta
+- **Especificaciones técnicas**: Potencia (libras), velocidad (FPS), peso, longitud
+- **Precio**: Precio actual y descuentos si están disponibles
+- **Disponibilidad**: Estado de stock del producto
+- **Reseñas**: Calificaciones y comentarios de usuarios
+- **Características adicionales**: Accesorios incluidos, garantía, materiales
+
+Los datos se almacenan en el dataset predeterminado en el directorio `./storage/datasets/default/`.
+
+## Usando PlaywrightCrawler para sitios dinámicos
+
+Usar <ApiLink to="class/PlaywrightCrawler">`PlaywrightCrawler`</ApiLink> cuando se trabaja con tiendas en línea con JavaScript intensivo, catálogos dinámicos o filtros interactivos.
+
+<CodeBlock className="language-python">
+    {PlaywrightSource}
+</CodeBlock>
+
+El agente basado en Playwright puede:
+- **Manejar contenido dinámico**: Esperar a que JavaScript cargue los productos
+- **Interactuar con filtros**: Seleccionar categorías, rangos de precio, marcas
+- **Extraer imágenes**: Capturar fotos de productos en alta resolución
+- **Navegar catálogos complejos**: Manejar paginación infinita y carga dinámica
+- **Acceder a detalles ocultos**: Hacer clic en pestañas para ver especificaciones completas
+
+## Casos de uso
+
+Este tipo de agente es útil para:
+
+- **Comparadores de precios**: Recopilar precios de múltiples vendedores
+- **Monitoreo de inventario**: Rastrear disponibilidad de productos populares
+- **Análisis de mercado**: Estudiar tendencias de precios y especificaciones
+- **Bases de datos de productos**: Crear catálogos completos para sitios de reseñas
+- **Sistemas de recomendación**: Alimentar algoritmos con datos de productos estructurados
+- **Investigación de competencia**: Analizar ofertas de competidores
+
+## Tipos de agentes aplicables
+
+Este patrón de agente puede ser aplicado a diversos dominios:
+
+### 1. **Agentes de comercio electrónico**
+   - Productos deportivos (ballestas, arcos, equipamiento)
+   - Equipamiento de caza y tiro deportivo
+   - Accesorios y repuestos
+
+### 2. **Agentes de información especializada**
+   - Sitios de reseñas y comparativas
+   - Foros y comunidades de entusiastas
+   - Blogs y artículos técnicos
+
+### 3. **Agentes de monitoreo de precios**
+   - Seguimiento de ofertas y descuentos
+   - Alertas de disponibilidad
+   - Comparación multi-sitio
+
+### 4. **Agentes de agregación de contenido**
+   - Tutoriales y guías de uso
+   - Videos de demostración
+   - Manuales y documentación técnica
+
+## Funcionalidades principales
+
+El agente de ballestas implementa las siguientes funcionalidades:
+
+1. **Extracción estructurada**: Convierte datos no estructurados en formatos consistentes
+2. **Validación de datos**: Verifica que la información extraída sea completa y válida
+3. **Manejo de errores**: Reintentos automáticos y logging detallado
+4. **Normalización**: Convierte unidades y formatos a estándares consistentes
+5. **Enriquecimiento**: Agrega metadatos y categorización automática
+6. **Deduplicación**: Evita almacenar productos duplicados
+
+## Personalización
+
+Para adaptar estos ejemplos a sitios web específicos:
+
+1. **Actualizar los selectores**: Inspeccionar el sitio web objetivo y modificar los selectores CSS para que coincidan con la estructura HTML
+2. **Ajustar las URLs iniciales**: Reemplazar las URLs de ejemplo con tiendas reales de ballestas
+3. **Agregar más campos de datos**: Extraer información adicional como dimensiones, materiales, accesorios incluidos
+4. **Implementar validación**: Agregar lógica para verificar que los precios y especificaciones sean válidos
+5. **Configurar proxies**: Para scraping a gran escala, considerar usar rotación de proxies
+6. **Personalizar almacenamiento**: Exportar datos a bases de datos o APIs específicas
+
+## Consideraciones éticas y legales
+
+Al extraer información de productos:
+
+- **Respetar robots.txt**: Siempre verificar y respetar el archivo robots.txt del sitio web
+- **Verificar términos de servicio**: Asegurar que el scraping esté permitido por el sitio web
+- **Limitación de tasa**: Usar retrasos apropiados para evitar sobrecargar los servidores
+- **Respeto a la propiedad intelectual**: No copiar descripciones o imágenes protegidas sin autorización
+- **Uso responsable**: Los datos extraídos deben usarse de manera ética y legal
+- **Privacidad**: No recopilar datos personales de usuarios sin consentimiento
+
+## Optimización del rendimiento
+
+Para mejorar el rendimiento del agente:
+
+- **Usar BeautifulSoupCrawler** cuando sea posible (más rápido que Playwright)
+- **Implementar caché** para evitar re-scraping de páginas ya procesadas
+- **Configurar concurrencia** ajustando `max_concurrency` según los recursos disponibles
+- **Filtrar URLs temprano** para evitar procesar páginas irrelevantes
+- **Usar selectores eficientes** que sean específicos pero no frágiles
+
+## Recursos relacionados
+
+- <ApiLink to="class/BeautifulSoupCrawler">`BeautifulSoupCrawler`</ApiLink>
+- <ApiLink to="class/PlaywrightCrawler">`PlaywrightCrawler`</ApiLink>
+- <ApiLink to="class/Dataset">`Dataset`</ApiLink>
+- <ApiLink to="class/Request">`Request`</ApiLink>
+- [Respetar archivo robots.txt](./respect_robots_txt_file.mdx)
+- [Crawl múltiples URLs](./crawl_multiple_urls.mdx)
+- [Exportar dataset completo a archivo](./export_entire_dataset_to_file.mdx)
