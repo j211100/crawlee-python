@@ -154,7 +154,6 @@ async def main() -> None:
                 'reviews_count': reviews_count,
                 'features': features,
                 'image_url': image_url,
-                'extracted_at': context.request.loaded_url,
             }
 
             # Almacenar los datos extraídos

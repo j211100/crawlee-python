@@ -2,6 +2,10 @@ import asyncio
 
 from crawlee.crawlers import PlaywrightCrawler, PlaywrightCrawlingContext
 
+# Constantes de configuración
+MAX_PRODUCT_IMAGES = 10  # Número máximo de imágenes a extraer por producto
+MAX_REVIEWS = 5  # Número máximo de reseñas a extraer por producto
+
 
 async def main() -> None:
     """Agente que extrae información sobre ballestas usando Playwright.
@@ -244,7 +248,7 @@ async def main() -> None:
         img_elements = await context.page.query_selector_all(
             '.product-gallery img, .product-images img, [data-image]'
         )
-        for img in img_elements[:10]:  # Limitar a 10 imágenes
+        for img in img_elements[:MAX_PRODUCT_IMAGES]:
             img_url = await img.get_attribute('src')
             if img_url and not img_url.startswith('data:'):
                 images.append(img_url)
@@ -258,7 +262,7 @@ async def main() -> None:
         review_elements = await context.page.query_selector_all(
             '.review-item, .user-review, [data-review]'
         )
-        for review_elem in review_elements[:5]:  # Limitar a 5 reseñas
+        for review_elem in review_elements[:MAX_REVIEWS]:
             try:
                 author_elem = await review_elem.query_selector('.review-author, .author')
                 author = (
