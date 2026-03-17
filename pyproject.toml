@@ -82,6 +82,10 @@ sql_sqlite = [
     "aiosqlite>=0.21.0",
 ]
 redis = ["redis[hiredis] >= 7.0.0"]
+sii-gateway = [
+    "langgraph>=1.1.0",
+    "structlog>=25.0.0",
+]
 
 [project.scripts]
 crawlee = "crawlee._cli:cli"
